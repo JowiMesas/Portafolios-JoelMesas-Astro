@@ -1,0 +1,38 @@
+---
+import '@fontsource/ubuntu-mono/700.css';
+import '@fontsource/neucha';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolios Joel Mesas</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
+    <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
+     <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
+<link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="w-screen h-screen">
+    <header class=" font-[Ubuntu_Mono] flex fixed justify-between t-0 border-b-4 w-full h-20 items-center text-white bg-black border-lime-200 ">
+        <div class="flex flex-row ml-3 gap-4">
+            <img class=" rounded-sm w-10 h-10 " src="logoPortafolios.png" alt="Logo de webs">
+            <h3 class=" text-2xl">Portafolios de Joel Mesas</h3>
+        </div>
+        <nav class="flex flex-row gap-x-10 mr-6">
+            <a class="" href="/"> <i class="fa-solid fa-house"></i> Home</a>
+            <a href="/"><i class="fa-solid fa-circle-user"></i> Sobre mi</a>
+            <a href="/"> <i class="fa-solid fa-folders"></i> Mis proyectos</a>
+            <a href="/"> <i class="fa-solid fa-file-user"></i> Curriculum</a>
+        </nav>
+    </header>
+
+        <slot />
+    <footer class="flex fixed justify-between w-screen b-0 h-20 text-white bg-black">
+        <h2 class="font-bold">Contacto</h2>
+    </footer>
+</body>
+</html>
