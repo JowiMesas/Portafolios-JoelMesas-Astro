@@ -16,8 +16,8 @@ import '@fontsource/neucha';
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
 </head>
-<body class="w-screen h-screen">
-    <header class=" font-[Ubuntu_Mono] flex fixed justify-between t-0 border-b-4 w-full h-20 items-center text-white bg-black border-lime-200 ">
+<body class=" flex flex-col w-screen h-screen">
+    <header class=" font-[Ubuntu_Mono] flex fixed justify-between top-0 border-b-4 w-full h-20 items-center text-white bg-black border-purple-400 ">
         <div class="flex flex-row ml-3 gap-4">
             <img class=" rounded-sm w-10 h-10 " src="logoPortafolios.png" alt="Logo de webs">
             <h3 class=" text-2xl">Portafolios de Joel Mesas</h3>
@@ -26,13 +26,39 @@ import '@fontsource/neucha';
             <a class="" href="/"> <i class="fa-solid fa-house"></i> Home</a>
             <a href="/"><i class="fa-solid fa-circle-user"></i> Sobre mi</a>
             <a href="/"> <i class="fa-solid fa-folders"></i> Mis proyectos</a>
-            <a href="/"> <i class="fa-solid fa-file-user"></i> Curriculum</a>
+            <a href="/curriculumPage"> <i class="fa-solid fa-file-user"></i> Curriculum</a>
         </nav>
     </header>
-
+    <main class="flex-grow pt-20 bg-purple-200">
         <slot />
-    <footer class="flex fixed justify-between w-screen b-0 h-20 text-white bg-black">
-        <h2 class="font-bold">Contacto</h2>
-    </footer>
+    </main>
+    <footer class=" font-[Ubuntu_Mono] flex flex-col items-center w-full h-52 bg-black rounded-t-xl text-white py-4">
+        <h2 class="font-bold text-3xl">Contactos</h2>
+        <div class="flex flex-row justify-between items-center w-full mt-4 gap-8">
+          <div class="flex flex-col items-center ml-3 p-4 border-r-3">
+            <i class="fa-solid fa-circle-phone text-3xl"></i>
+            <span class="font-semibold text-lg">Teléfono</span>
+            <p>606 72 84 09</p>
+          </div>
+          <div class="flex flex-col items-center p-4 border-r-3 border-l-3">
+            <i class="fa-solid fa-circle-envelope text-3xl"></i>
+            <span class="font-semibold text-lg">Email</span>
+            <p>joelmesash@gmail.com</p>
+          </div>
+          <div class="flex flex-col items-center p-4 border-l-3 border-r-3">
+            <img class="w-9 h-9" src="logoLinkedin.png" alt="Logo Linkedin">
+            <span class="font-semibold text-lg"> Linkedin</span>
+            <a target="_blank" href="https://www.linkedin.com/in/joel-mesas/">
+                <button class="bg-blue-500 rounded-xl p-1 cursor-pointer  hover:bg-blue-700">
+            Click Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i></button> </a>
+          </div>
+          <div class="flex flex-col items-center mr-6 border-l-3 p-4">
+            <img class="w-9 h-9" src="gitHubLogo.png" alt="Logo GitHub">
+            <span class="font-semibold text-lg">GitHub</span>
+            <a target="_blank" href="https://github.com/JowiMesas"><button class="bg-purple-600 rounded-xl p-1 cursor-pointer hover:bg-purple-800">
+                CLick Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i> </button></a>
+          </div>
+        </div>
+      </footer>
 </body>
 </html>
