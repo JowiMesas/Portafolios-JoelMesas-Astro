@@ -1,21 +1,20 @@
 ---
-import '@fontsource/ubuntu-mono/700.css';
-import '@fontsource/neucha';
+
 ---
-<div class="font-[Ubuntu_Mono] flex flex-col ml-3 mr-3 gap-6 items-center">
-    <h2 class="text-3xl mt-4">Sobre mi curriculum</h2>
+
+<div class="flex flex-col ml-3 mr-3 gap-6 items-center mb-20">
+    <h2 class="text-3xl mt-8">Sobre mi curriculum</h2>
     <div class="w-full bg-purple-400 rounded-lg mt-4 mb-4 flex flex-row">
             <div class="flex flex-col ml-3 items-center gap-10">
-                <p class="text-xl  leading-10">Bienvenido a esta sección, donde podrás descargar mi currículum completo y 
+                <p class="text-xl leading-10">Bienvenido a esta sección, donde podrás descargar mi currículum completo y 
                     explorar apartados específicos que destacan mis competencias clave. 
                     Además de mis habilidades interpersonales y competencias digitales, encontrarás un 
                     apartado dedicado a los idiomas.
         
-                    En este espacio destaco que, si bien mi lengua materna es el español y catalán , 
+                    En este espacio destaco que, si bien mi lengua materna es el español y catalán, 
                     el inglés es un área en la que estoy en constante mejora. Mi compromiso 
                     por perfeccionar mis habilidades comunicativas me impulsa a seguir aprendiendo y adaptándome 
                     a contextos internacionales.</p>
-                    <!--Aqui ira la parte para que se envie a ver mi curriculum en pdf o que pueda descargarlo -->
                     <a target="_blank" href="Curriculum-JoelMesas.pdf">
                         <button class="bg-white rounded-xl p-2 cursor-pointer text-black hover:bg-gray-200">
                             Ver/Descargar Curriculum <i class="fa-solid fa-download"></i> </button>
@@ -23,8 +22,205 @@ import '@fontsource/neucha';
             </div>
             <img class="w-200 h-100 rounded-full" src="ordenadorImg.jpg" alt="Img de web ejemplo">
     </div>
-    <h2 class="text-3xl mt-4">Apartados que necesitas saber</h2>
-    <div class="relative w-full">
-        <!--Aqui es donde quiero hacer un scroll de algunos apartados del curriculum -->
+    <h2 class="text-3xl mt-4">Apartados que te podrían interesar</h2>
+    
+    <!-- Controles de navegación -->
+    <div class="flex justify-center gap-4 mb-4">
+        <button id="prevBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-300">
+            <i class="fa-solid fa-arrow-left"></i> Anterior
+        </button>
+        <button id="nextBtn" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition-all duration-300">
+            Siguiente <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+    
+    <!-- Indicadores de sección -->
+    <div class="flex gap-2 mb-6">
+        <span class="dot cursor-pointer w-4 h-4 rounded-full bg-purple-600 scale-110 transition-all duration-300"></span>
+        <span class="dot cursor-pointer w-4 h-4 rounded-full bg-gray-400 transition-all duration-300"></span>
+        <span class="dot cursor-pointer w-4 h-4 rounded-full bg-gray-400 transition-all duration-300"></span>
+    </div>
+    
+    <div class="carousel-container relative w-full overflow-hidden rounded-xl shadow-2xl h-96 mb-16">
+        <div id="carousel" class="carousel-inner flex h-full transition-transform duration-500 ease-in-out">
+            
+            <!-- SOFT SKILLS -->
+            <section class="carousel-slide  w-full min-w-full flex flex-col justify-center items-center bg-gradient-to-r from-purple-600 to-blue-500 p-6">
+                <h2 class="text-4xl font-bold mb-6">Soft Skills</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 slide-content opacity-0">
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Trabajo en Equipo ⭐⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Organización ⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Responsabilidad y disciplina ⭐⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Creatividad ⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Flexibilidad ⭐⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Empatia ⭐⭐⭐⭐⭐</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300">✅ Resolución de problemas ⭐⭐⭐⭐⭐</div>
+                </div>
+            </section>
+
+            <!-- HARD SKILLS -->
+            <section class="carousel-slide  w-full min-w-full flex flex-col justify-center items-center bg-gradient-to-r from-red-600 to-orange-500 p-6">
+                <h2 class="text-4xl font-bold mb-6">Tecnologías</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 slide-content opacity-0">
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/javascript.jpg" alt="Logo Javascript"> JavaScript</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/laravel.png" alt="Logo Laravel"> Laravel</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/react.png" alt="Logo React"> React</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/php.png" alt="Logo PHP"> PHP</div>
+                        <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                            <img class="w-6 h-6 mr-2" src="/src/assets/typescript.png" alt="Logo TypeScript"> TypeScript</div>
+                        <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                            <img class="w-6 h-6 mr-2" src="/src/assets/angular.png" alt="Logo Angular"> Angular</div>
+                        <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                             <img class="w-6 h-6 mr-2" src="/src/assets/symfony.png" alt="Logo Symfony">Symfony</div>
+                        <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                            <img class="w-6 h-6 mr-2" src="/src/assets/mysql.png" alt="Logo MySQL"> MySQL</div>
+                        <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                            <img class="w-6 h-6 mr-2" src="/src/assets/astro.png" alt="Logo Astro"> Astro</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/bootstrap.png" alt="Logo Bootstrap">Bootstrap</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-6 h-6 mr-2" src="/src/assets/tailwind.png" alt="Logo Tailwind">Tailwind</div>
+                </div>
+            </section>
+
+            <!-- IDIOMAS -->
+            <section class="carousel-slide w-full min-w-full flex flex-col justify-center items-center bg-gradient-to-r from-green-600 to-teal-500 p-6">
+                <h2 class="text-4xl font-bold mb-6">Idiomas</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 slide-content opacity-0">
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                         <img class="w-8 h-6 mr-2" src="español.png" alt="Idioma español img"> Español - Nativo</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-8 h-6 mr-2" src="catalan.png" alt="Idioma español img"> Catalán - Nativo</div>
+                    <div class="bg-white p-3 rounded-md hover:scale-105 transition-transform duration-300 hover:bg-gray-300 flex items-center">
+                        <img class="w-8 h-6 mr-2" src="ingles.jfif" alt="Idioma español img"> Inglés - En progreso</div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <!-- Separador con línea decorativa -->
+    <div class="w-full flex justify-center items-center my-8">
+        <div class="h-px bg-gradient-to-r from-transparent via-purple-500 to-transparent w-3/4"></div>
+    </div>
+    
+    <!-- Mensaje de cierre antes del footer -->
+    <div class="text-center mb-12 max-w-2xl">
+        <p class="text-lg">Estas son algunas de mis habilidades y competencias principales. Para conocer más sobre mi trayectoria profesional, no dudes en descargar mi currículum completo o explorar el resto de mi portafolio.</p>
     </div>
 </div>
+
+<style>
+    @keyframes fadeInUp {
+        from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+    }
+    
+    .slide-content.active {
+        opacity: 1;
+    }
+</style>
+
+<script is:inline>
+    // Script ejecutado en el cliente
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousel = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const contents = document.querySelectorAll('.slide-content');
+        
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        
+        // Función para actualizar el carrusel
+        function updateCarousel() {
+            // Mover el carrusel
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar los indicadores
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('scale-110', 'bg-purple-600');
+                    dot.classList.remove('bg-gray-400');
+                } else {
+                    dot.classList.remove('scale-110', 'bg-purple-600');
+                    dot.classList.add('bg-gray-400');
+                }
+            });
+            
+            // Ocultar todos los contenidos
+            contents.forEach(content => {
+                content.classList.remove('active');
+                content.style.opacity = '0';
+            });
+            
+            // Mostrar el contenido actual con animación
+            setTimeout(() => {
+                contents[currentIndex].classList.add('active');
+                animateItems(contents[currentIndex]);
+            }, 500); // Esperar a que termine la transición del carousel
+        }
+        
+        // Función para animar los elementos
+        function animateItems(content) {
+            content.style.opacity = '1';
+            const items = content.querySelectorAll('div');
+            items.forEach((item, i) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s, transform 0.5s';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, i * 100); // Efecto cascada
+            });
+        }
+        
+        // Función para ir a la siguiente diapositiva
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Función para ir a la diapositiva anterior
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Configurar escuchadores de eventos para los botones
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Configurar escuchadores de eventos para los indicadores
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+        
+        // Inicializar el carrusel
+        updateCarousel();
+        
+        // Opcional: Auto-rotación del carrusel
+        // const interval = setInterval(nextSlide, 5000);
+        
+        // Opcional: Detener auto-rotación al interactuar
+        // const container = document.querySelector('.carousel-container');
+        // container.addEventListener('mouseenter', () => clearInterval(interval));
+        // container.addEventListener('mouseleave', () => interval = setInterval(nextSlide, 5000));
+    });
+</script>
