@@ -1,6 +1,7 @@
 ---
 import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
+import { ViewTransitions } from 'astro:transitions';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -10,25 +11,84 @@ import '@fontsource/neucha';
     <title>Portafolios Joel Mesas</title>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
-    <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
-    <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
-    <link rel="stylesheet"href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <ViewTransitions />
+    <style>
+      /* Modifica las transiciones para que sean más lentas y suaves */
+      ::view-transition-old(root) {
+        animation: fadeOut 2s ease-out forwards;
+      }
+      
+      ::view-transition-new(root) {
+        animation: fadeIn 2s ease-out forwards;
+      }
+      
+      /* Transiciones específicas para el header - hacerlas un poco más lentas */
+      ::view-transition-old(nav-links),
+      ::view-transition-new(nav-links) {
+        animation: slide 2s ease-out forwards;
+      }
+      
+      /* Transición para el contenido principal - ajustar timing */
+      ::view-transition-old(main-content),
+      ::view-transition-new(main-content) {
+        animation: scale 1s ease-out forwards;
+      }
+      
+      /* Animaciones con timing ajustado */
+      @keyframes fadeOut {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-20px); }
+      }
+      
+      @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        30% { opacity: 0.5; }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      
+      @keyframes slide {
+        0% { transform: translateX(-30px); opacity: 0; }
+        40% { opacity: 0.6; }
+        100% { transform: translateX(0); opacity: 1; }
+      }
+      
+      @keyframes scale {
+        0% { transform: scale(0.95); opacity: 0; }
+        40% { opacity: 0.6; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+      html.view-transition-preparing main {
+         opacity: 0 !important;
+      }
+
+      /* Asegura que el contenido sea visible solo cuando esté listo */
+      .main-content-ready {
+        opacity: 1 !important;
+      }
+    </style>
 </head>
 <body class="flex flex-col w-screen h-screen">
+    
+  
     <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 border-b-4 w-full h-20 items-center text-white bg-black border-purple-400 z-50">
-        <div class="flex flex-row ml-3 gap-4">
-            <img class="rounded-sm w-10 h-10" src="logoPortafolios.png" alt="Logo de webs">
+        <div class="flex flex-row ml-3 items-center gap-3">
+            <img class="rounded-sm w-13 h-13" src="/iconWeb.gif" alt="Logo de webs">
             <h3 class="text-2xl">Portafolios de Joel Mesas</h3>
         </div>
-        <nav class="flex flex-row gap-x-10 mr-6">
-            <a class="" href="/"> <i class="fa-solid fa-house"></i> Home</a>
+        <!-- Aquí agregamos el atributo style con view-transition-name a la navegación -->
+        <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
+            <a href="/"> <i class="fa-solid fa-house"></i> Home</a>
             <a href="/sobreMiPage"><i class="fa-solid fa-circle-user"></i> Sobre mi</a>
             <a href="/proyectosPage"> <i class="fa-solid fa-folders"></i> Mis proyectos</a>
             <a href="/curriculumPage"> <i class="fa-solid fa-file-user"></i> Curriculum</a>
         </nav>
     </header>
-    <main class="flex-grow pt-24 bg-purple-200 font-[Ubuntu_Mono]">
+    <!-- Agregamos view-transition-name al contenido principal -->
+    <main class="flex-grow pt-24 bg-purple-200 font-[Ubuntu_Mono]" style="view-transition-name: main-content;">
         <slot />
     </main>
     <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-52 bg-black rounded-t-xl text-white py-4">
@@ -45,19 +105,52 @@ import '@fontsource/neucha';
             <p>joelmesash@gmail.com</p>
           </div>
           <div class="flex flex-col items-center p-4 ">
-            <img class="w-9 h-9" src="logoLinkedin.png" alt="Logo Linkedin">
+            <img class="w-9 h-9" src="/logoLinkedin.png" alt="Logo Linkedin">
             <span class="font-semibold text-lg">Linkedin</span>
             <a target="_blank" href="https://www.linkedin.com/in/joel-mesas/">
                 <button class="bg-blue-500 rounded-xl p-1 cursor-pointer hover:bg-blue-700">
             Click Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i></button> </a>
           </div>
           <div class="flex flex-col items-center mr-6">
-            <img class="w-9 h-9" src="gitHubLogo.png" alt="Logo GitHub">
+            <img class="w-9 h-9" src="/gitHubLogo.png" alt="Logo GitHub">
             <span class="font-semibold text-lg">Perfil GitHub</span>
             <a target="_blank" href="https://github.com/JowiMesas"><button class="bg-purple-600 rounded-xl p-1 cursor-pointer hover:bg-purple-800">
                 Cick Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i> </button></a>
           </div>
         </div>
       </footer>
+      <script>
+        // Este script mejora la carga de Tailwind durante las transiciones
+        document.addEventListener('astro:before-preparation', () => {
+          // Añade una clase para ocultar momentáneamente el contenido
+          document.documentElement.classList.add('view-transition-preparing');
+        });
+  
+        document.addEventListener('astro:after-preparation', () => {
+          // Precarga Tailwind antes de mostrar el nuevo contenido
+          const tailwindScript = document.createElement('script');
+          tailwindScript.src = "https://unpkg.com/@tailwindcss/browser@4";
+          document.head.appendChild(tailwindScript);
+        });
+  
+        document.addEventListener('astro:page-load', () => {
+          console.log('Página cargada con transición');
+          
+          // Elimina la clase que oculta el contenido después de un breve retraso
+          setTimeout(() => {
+            document.documentElement.classList.remove('view-transition-preparing');
+            document.documentElement.classList.add('main-content-ready');
+          }, 200);
+          
+          // Dispara un evento personalizado que cualquier script en la página puede escuchar
+          document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
+          
+          // Asegura scroll suave al principio de la página en cada carga
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      </script>
 </body>
 </html>
