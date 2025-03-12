@@ -1,41 +1,44 @@
 ---
 import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
-import { ViewTransitions } from 'astro:transitions';
+import { ClientRouter } from 'astro:transitions';
 ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolios Joel Mesas</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
+
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <ViewTransitions />
+    <ClientRouter />
     <style>
       /* Modifica las transiciones para que sean más lentas y suaves */
       ::view-transition-old(root) {
-        animation: fadeOut 2s ease-out forwards;
+        animation: fadeOut 1s ease-out forwards;
       }
       
       ::view-transition-new(root) {
-        animation: fadeIn 2s ease-out forwards;
+        animation: fadeIn 1s ease-out forwards;
       }
       
       /* Transiciones específicas para el header - hacerlas un poco más lentas */
       ::view-transition-old(nav-links),
       ::view-transition-new(nav-links) {
-        animation: slide 2s ease-out forwards;
+        animation: slide 0.5s ease-out forwards;
       }
       
       /* Transición para el contenido principal - ajustar timing */
       ::view-transition-old(main-content),
       ::view-transition-new(main-content) {
-        animation: scale 1s ease-out forwards;
+        animation: scale 0.5s ease-out forwards;
       }
       
       /* Animaciones con timing ajustado */
@@ -61,7 +64,7 @@ import { ViewTransitions } from 'astro:transitions';
         40% { opacity: 0.6; }
         100% { transform: scale(1); opacity: 1; }
       }
-      html.view-transition-preparing main {
+      .view-transition-preparing main {
          opacity: 0 !important;
       }
 
@@ -72,8 +75,6 @@ import { ViewTransitions } from 'astro:transitions';
     </style>
 </head>
 <body class="flex flex-col w-screen h-screen">
-    
-  
     <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 border-b-4 w-full h-20 items-center text-white bg-black border-purple-400 z-50">
         <div class="flex flex-row ml-3 items-center gap-3">
             <img class="rounded-sm w-13 h-13" src="/iconWeb.gif" alt="Logo de webs">
