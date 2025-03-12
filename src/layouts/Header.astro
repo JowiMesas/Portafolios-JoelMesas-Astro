@@ -16,6 +16,8 @@ import { ClientRouter } from 'astro:transitions';
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
+    <link rel="stylesheet" href="/src/styles/global.css" />
+
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
@@ -127,12 +129,7 @@ import { ClientRouter } from 'astro:transitions';
           document.documentElement.classList.add('view-transition-preparing');
         });
   
-        document.addEventListener('astro:after-preparation', () => {
-          // Precarga Tailwind antes de mostrar el nuevo contenido
-          const tailwindScript = document.createElement('script');
-          tailwindScript.src = "https://unpkg.com/@tailwindcss/browser@4";
-          document.head.appendChild(tailwindScript);
-        });
+        
   
         document.addEventListener('astro:page-load', () => {
           console.log('Página cargada con transición');
