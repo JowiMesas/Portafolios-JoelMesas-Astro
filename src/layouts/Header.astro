@@ -77,51 +77,73 @@ import { ClientRouter } from 'astro:transitions';
     </style>
 </head>
 <body class="flex flex-col w-screen h-screen">
-    <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 border-b-4 w-full h-20 items-center text-white bg-black border-purple-400 z-50">
-        <div class="flex flex-row ml-3 items-center gap-3">
-            <img class="rounded-sm w-13 h-13" src="/iconWeb.gif" alt="Logo de webs">
-            <h3 class="text-2xl">Portafolios de Joel Mesas</h3>
-        </div>
-        <!-- Aquí agregamos el atributo style con view-transition-name a la navegación -->
-        <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
-            <a href="/"> <i class="fa-solid fa-house"></i> Home</a>
-            <a href="/sobreMiPage"><i class="fa-solid fa-circle-user"></i> Sobre mi</a>
-            <a href="/proyectosPage"> <i class="fa-solid fa-folders"></i> Mis proyectos</a>
-            <a href="/curriculumPage"> <i class="fa-solid fa-file-user"></i> Curriculum</a>
-        </nav>
-    </header>
-    <!-- Agregamos view-transition-name al contenido principal -->
-    <main class="flex-grow pt-24 bg-purple-200 font-[Ubuntu_Mono]" style="view-transition-name: main-content;">
-        <slot />
-    </main>
-    <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-52 bg-black rounded-t-xl text-white py-4">
-        <h2 class="font-bold text-3xl">Contactos</h2>
-        <div class="flex flex-row justify-evenly items-center w-full mt-4 gap-8">
-          <div class="flex flex-col items-center ml-3 p-4 ">
-            <i class="fa-solid fa-circle-phone text-3xl"></i>
-            <span class="font-semibold text-lg">Teléfono</span>
-            <p>606 72 84 09</p>
-          </div>
-          <div class="flex flex-col items-center p-4 ">
-            <i class="fa-solid fa-circle-envelope text-3xl"></i>
-            <span class="font-semibold text-lg">Email</span>
-            <p>joelmesash@gmail.com</p>
-          </div>
-          <div class="flex flex-col items-center p-4 ">
-            <img class="w-9 h-9" src="/logoLinkedin.png" alt="Logo Linkedin">
-            <span class="font-semibold text-lg">Linkedin</span>
-            <a target="_blank" href="https://www.linkedin.com/in/joel-mesas/">
-                <button class="bg-blue-500 rounded-xl p-1 cursor-pointer hover:bg-blue-700">
-            Click Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i></button> </a>
-          </div>
-          <div class="flex flex-col items-center mr-6">
-            <img class="w-9 h-9" src="/gitHubLogo.png" alt="Logo GitHub">
-            <span class="font-semibold text-lg">Perfil GitHub</span>
-            <a target="_blank" href="https://github.com/JowiMesas"><button class="bg-purple-600 rounded-xl p-1 cursor-pointer hover:bg-purple-800">
-                Cick Aqui <i class="fa-solid fa-arrow-pointer animate-pulse"></i> </button></a>
-          </div>
-        </div>
-      </footer>
+  <!-- Header refinado con sutiles detalles -->
+  <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
+    <div class="flex flex-row ml-5 items-center gap-4">
+        <img class="rounded-sm w-13 h-13  " src="/src/assets/JM.svg" alt="Logo de webs">
+        <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
+    </div>
+    <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
+        <a href="/" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-house"></i> <span>Home</span>
+        </a>
+        <a href="/sobreMiPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
+            <i class="fa-solid fa-circle-user"></i> <span>Sobre mi</span>
+        </a>
+        <a href="/proyectosPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-folders"></i> <span>Mis proyectos</span>
+        </a>
+        <a href="/curriculumPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-file-user"></i> <span>Curriculum</span>
+        </a>
+    </nav>
+  </header>
+
+  <!-- Main con fondo sutil y sin borde superior -->
+  <main class="flex-grow pt-24 bg-white/95 font-[Ubuntu_Mono]" style="view-transition-name: main-content;">
+    <slot />
+  </main>
+
+ <!-- Footer refinado con alineación mejorada -->
+<footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+  <h2 class="font-bold text-3xl text-special mb-4">Contactos</h2>
+  <div class="flex flex-wrap justify-center items-stretch w-full max-w-6xl gap-8 px-4">
+    <!-- Teléfono -->
+    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+      <i class="fa-solid fa-circle-phone text-3xl  mb-2"></i>
+      <span class="font-semibold text-lg">Teléfono</span>
+      <p class="mt-1">606 72 84 09</p>
+    </div>
+    
+    <!-- Email -->
+    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+      <i class="fa-solid fa-circle-envelope text-3xl  mb-2"></i>
+      <span class="font-semibold text-lg">Email</span>
+      <p class="mt-1">joelmesash@gmail.com</p>
+    </div>
+    
+    <!-- LinkedIn -->
+    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+      <img class="w-9 h-9 mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
+      <span class="font-semibold text-lg">Linkedin</span>
+      <a target="_blank" class="mt-1 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1" href="https://www.linkedin.com/in/joel-mesas/">
+        Ver perfil <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+      </a>
+    </div>
+    
+    <!-- GitHub -->
+    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+      <img class="w-9 h-9 mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
+      <span class="font-semibold text-lg">GitHub</span>
+      <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1" href="https://github.com/JowiMesas">
+        Ver perfil <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+      </a>
+    </div>
+  </div>
+  <div class="mt-6 text-center text-sm text-gray-400">
+    <p>© 2025 Joel Mesas | Desarrollador Web</p>
+  </div>
+</footer>
       <script>
         // Este script mejora la carga de Tailwind durante las transiciones
         document.addEventListener('astro:before-preparation', () => {

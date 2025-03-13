@@ -2,37 +2,43 @@
 import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 ---
+
 <main>
-  <!-- Sección de presentación (Hero) -->
-  <section class="bg-gradient-to-br from-purple-700 via-purple-500 to-purple-300 py-12 px-6">
-    <div class="max-w-5xl mx-auto bg-white/20 backdrop-blur-md rounded-xl shadow-2xl p-8">
+  <!-- Hero Section con tu paleta de colores -->
+  <section class="bg-gradient-to-br from-primary via-primary-light to-special py-16 px-6 min-h-[85vh] flex items-center">
+    <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-xl shadow-2xl p-8 border border-white/20">
       <div class="flex flex-col md:flex-row items-center">
-        <!-- Imagen a la izquierda -->
+        <!-- Imagen de perfil -->
         <div class="md:w-1/2 flex justify-center">
-          <img
-            src="/src/assets/fotoCV.png"
-            alt="Joel Mesas"
-            class="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl"
-          />
+          <div class="relative">
+            <div class="absolute inset-0 bg-special rounded-full blur-md opacity-30 animate-pulse"></div>
+            <img
+              src="/src/assets/fotoCV.png"
+              alt="Joel Mesas"
+              class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl object-cover"
+            />
+          </div>
         </div>
-        <!-- Texto y botones a la derecha -->
+        
+        <!-- Texto y botones -->
         <div class="md:w-1/2 mt-8 md:mt-0 md:pl-12 text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold text-white">¡Bienvenido/a, soy Joel Mesas!👋</h1>
+          <h1 class="text-4xl md:text-5xl font-bold text-white">¡Hola, soy <span class="text-special">Joel Mesas</span>!👋</h1>
           <p class="mt-4 text-xl md:text-3xl text-white">
-            Desarrollador web 
+            Desarrollador web <span class="text-special font-bold">Full Stack</span>
           </p>
-          <div class="mt-6 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+          
+          <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
             <a
               href="/sobreMiPage"
-              class="inline-block border border-white text-white px-8 py-4 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-white hover:text-purple-700"
+              class="inline-block bg-secondary/80 text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-special hover:text-secondary font-bold group"
             >
-              Conóceme más
+              <i class="fa-solid fa-circle-user mr-2 group-hover:animate-bounce"></i> Conóceme más
             </a>
             <a
               href="/proyectosPage"
-              class="inline-block border border-white text-white px-8 py-4 rounded-lg shadow-lg transition transform hover:scale-105 hover:bg-white hover:text-purple-700"
+              class="inline-block border-2 border-white/70 text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-white hover:text-primary font-bold group"
             >
-              Ver Proyectos
+              <i class="fa-solid fa-folders mr-2 group-hover:animate-bounce"></i> Ver Proyectos
             </a>
           </div>
         </div>
@@ -40,34 +46,98 @@ import '@fontsource/neucha';
     </div>
   </section>
 
-  
-  <section id="valor" class="py-12 px-6 bg-purple-200">
-    <div class="container mx-auto">
-      <h2 class="flex items-center justify-center text-3xl md:text-3xl font-bold text-black">
-        <span>Mi Valor en la Empresa</span>
-        <img class="w-10 h-8 ml-2" src="/src/assets/laptop.gif" alt="Gif Estadisticas">
+  <!-- Sección de Resumen / Valor -->
+  <section id="valor" class="py-16 px-6 bg-white">
+    <div class="container mx-auto max-w-4xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-secondary text-center mb-6">
+        Lo que puedo aportar 
       </h2>
-      <p class="mt-4 text-lg md:text-xl text-gray-700 text-center max-w-3xl mx-auto">
-        Como desarrollador, me esfuerzo por aportar <span class="font-semibold">creatividad, eficiencia y colaboración</span> a cada proyecto. Me adapto fácilmente a nuevos desafíos y disfruto resolviendo problemas con soluciones innovadoras.
+      <div class="w-24 h-1 bg-special mx-auto mb-10"></div>
+      
+      <!-- Cards de valor -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="flex items-start">
+            <div class="bg-special/20 p-3 rounded-full mr-4">
+              <i class="fa-solid fa-code text-primary text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-secondary text-xl">Desarrollo a medida</h3>
+              <p class="text-gray-600 mt-2">Soluciones personalizadas que se adaptan perfectamente a las necesidades específicas de cada proyecto y cliente.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="flex items-start">
+            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
+              <i class="fa-solid fa-palette text-[#B150F2] text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-[#373540] text-xl">Diseño centrado en usuario</h3>
+              <p class="text-gray-600 mt-2">Interfaces intuitivas y atractivas que priorizan la experiencia del usuario final y mejoran la conversión.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="flex items-start">
+            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
+              <i class="fa-solid fa-laptop-code text-[#B150F2] text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-[#373540] text-xl">Adaptabilidad a nuevas tecnologías</h3>
+              <p class="text-gray-600 mt-2">Siempre me mantengo actualizado,aprendiendo
+                 y adaptando nuevas tecnologías para optimizar y potenciar cada proyecto.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 4 -->
+        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
+          <div class="flex items-start">
+            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
+              <i class="fa-solid fa-users text-[#B150F2] text-2xl"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-[#373540] text-xl">Colaboración efectiva</h3>
+              <p class="text-gray-600 mt-2">Trabajo en equipo para lograr los objetivos del proyecto en tiempo y forma.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Call to action -->
+      <div class="text-center mt-12">
+        <a 
+          href="/curriculumPage" 
+          class="inline-block bg-[#B150F2] text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-[#CA6BF2] font-bold"
+        >
+          <i class="fa-solid fa-file-user mr-2"></i> Ver mi curriculum
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección CTA Final -->
+  <section class="py-16 px-6 bg-[#373540] text-white">
+    <div class="container mx-auto max-w-4xl text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Listo para trabajar juntos?</h2>
+      <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+        Si buscas un desarrollador comprometido que pueda llevar tus ideas al siguiente nivel, estoy aquí para ayudarte.
       </p>
-      <ul class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto text-gray-700">
-        <li class="flex items-center">
-          <i class="fa-solid fa-check-circle text-green-500 text-2xl mr-2"></i>
-          <span>Trabajo en equipo </span>
-        </li>
-        <li class="flex items-center">
-          <i class="fa-solid fa-check-circle text-green-500 text-2xl mr-2"></i>
-          <span>Resolución de problemas con pensamiento crítico</span>
-        </li>
-        <li class="flex items-center">
-          <i class="fa-solid fa-check-circle text-green-500 text-2xl mr-2"></i>
-          <span>Aprendizaje continuo y mejora constante</span>
-        </li>
-        <li class="flex items-center">
-          <i class="fa-solid fa-check-circle text-green-500 text-2xl mr-2"></i>
-          <span>Pasión por la innovación y la optimización</span>
-        </li>
-      </ul>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href="/proyectosPage" 
+          class="inline-block bg-[#F2BC57] text-[#373540] px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 font-bold"
+        >
+          Explorar proyectos
+        </a>
+       
+      </div>
     </div>
   </section>
 </main>

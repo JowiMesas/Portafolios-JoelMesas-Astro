@@ -1,265 +1,352 @@
-<div class="flex flex-col ml-3 mr-3 gap-6 items-center mb-20">
-    <h2 class="text-3xl mt-8 font-bold text-center">Todos mis proyectos</h2>
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-20 w-full max-w-5xl">
-      
-      <!-- 1r Proyecto Swanest -->
-      <article
-        class="flex flex-col bg-white dark:bg-gray-800
-               border border-gray-300 dark:border-gray-700 
-               rounded-lg shadow-xl overflow-hidden
-               transform transition-transform duration-300 
-               hover:scale-[1.05]"
-      >
-        <!-- Imagen en la parte superior -->
-        <div class="w-full h-64">
-          <img
-            src="/src/assets/swanest.png"
-            alt="Swanest Proyecto"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        
-        <!-- Contenido debajo de la imagen -->
-        <div class="p-4 flex flex-col justify-between leading-normal">
-          <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            Swanest
-          </h5>
-          <p class="mb-3 text-gray-700 dark:text-gray-400">
-            Este proyecto trata sobre una app de citas, 
-            desarrollada junto a 3 compañeros más en el grado superior de DAW.
-          </p>
-          
-          <!-- Tecnologías utilizadas -->
-          <div class="flex flex-wrap gap-3">
-            <span 
-              class="flex items-center gap-2 
-                     bg-red-400 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-red-500 "
-            >
-              <img class="w-6 h-6" src="/src/assets/angular.png" alt="Angular" /> 
-              Angular
-            </span>
-            <span 
-              class="flex items-center gap-2 
-                     bg-gray-400 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-gray-500 "
-            >
-              <img class="w-6 h-6" src="/src/assets/symfony.png" alt="Symfony" /> 
-              Symfony
-            </span>
-            <span class="flex items-center gap-2 
-                     bg-blue-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-blue-500 ">
-                <img class="w-6 h-6 mr-2" src="/src/assets/tailwind.png" alt="Logo Tailwind">
-                Tailwind
-            </span>
-          </div>
-          
-          <!-- Botón Repositorio -->
-          <a
-            href="/proyectosPage"
-            class="mt-4 text-center bg-purple-500 py-2 px-4 
-                   rounded-lg hover:bg-purple-600 
-                   transition-colors duration-300 
-                   flex items-center justify-center gap-2 "
-          >
-            <i class="fa-solid fa-eye"></i> Ver Repositorio
-          </a>
-        </div>
-      </article>
-      <!-- 2º Proyecto Blog de Prueba Laravel -->
-      <article class="flex flex-col bg-white dark:bg-gray-800
-               border border-gray-300 dark:border-gray-700 
-               rounded-lg shadow-xl overflow-hidden
-               transform transition-transform duration-300 
-               hover:scale-[1.05]">
-               <div class="w-full h-64">
-                <img src="/src/assets/blogLaravel.png"alt="Blog Proyecto Img"
-                  class="w-full h-full object-cover"/>
-              </div>
-              <div class="p-4 flex flex-col justify-between leading-normal">
-                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    Blog</h5>
-                    <p class="mb-3 text-gray-700 dark:text-gray-400">
-                        Este proyecto es sobre un blog en laravel, utilizando livewire y Alpine.js,
-                        además de  relaciones polimorficas
-                    </p>
-                    <div class=" flex flex-wrap gap-3">
-                    <span class="flex items-center gap-2 
-                     bg-red-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-red-400">
-                        <img class="w-6 h-6 mr-2" src="/src/assets/laravel.png" alt="Logo Laravel">
-                        Laravel
-                    </span>
-                    <span class="flex items-center gap-2 bg-sky-500 px-3 py-2 rounded-xl
-                    hover:scale-105 transition-transform duration-300 hover:bg-sky-600
-                    ">
-                        <img class="w-6 h-6 mr-2" src="/src/assets/livewire.png" alt="Livewire logo">
-                        Livewire
-                    </span>
-                    <span class="flex items-center gap-2 bg-gray-300 px-3 py-2 rounded-xl
-                    hover:scale-105 transition-transform duration-300 hover:bg-blue-400 ">
-                    <img class="w-6 h-6 mr-2" src="/src/assets/alpine.png" alt="Logo Alpine.js">
-                    Alpine.JS
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-blue-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-blue-500 ">
-                <img class="w-6 h-6 mr-2" src="/src/assets/tailwind.png" alt="Logo Tailwind">
-                Tailwind
-            </span>
-                    </div>
-                    <a target="_blank" href="https://github.com/JowiMesas/pruebablog-joel"
-                    class="mt-4 text-center bg-purple-500 py-2 px-4 
-                           rounded-lg hover:bg-purple-600 
-                           transition-colors duration-300 
-                           flex items-center justify-center gap-2 "
-                  >
-                    <i class="fa-solid fa-eye"></i> Ver Repositorio
-                  </a>
-              </div>           
-      </article>
-      <!-- Linea para dividr proyectos -->
-    <div class="col-span-2 my-8">
-        <div class="w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500"></div>
-     </div>
-     <!-- 3r Proyecto EventsZoneG -->
-     <article class="flex flex-col bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 
-               rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 
-               hover:scale-[1.05]">
-               <div class="w-full h-64">
-                <img src="/src/assets/eventszoneg.png"alt="EventsZoneG Proyecto Img"
-                  class="w-full h-full object-cover"/>
-              </div>
-              <div class="p-4 flex flex-col justify-between leading-normal">
-                  <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    EventsZoneG</h5>
-                    <div class="mb-3 text-gray-700 dark:text-gray-400">
-                      <p>
-                        Esta página web trata sobre videojuegos, en la que desafortunadamente no se acabó del todo, pero cuenta con diversas funciones, por ejemplo:
-                      </p>
-                      <ul class="mt-3 list-disc list-inside space-y-1">
-                        <li class="flex items-center gap-2">
-                          <i class="fa-solid fa-check-circle text-green-500"></i>
-                          Poder informarse sobre posibles eventos.
-                        </li>
-                        <li class="flex items-center gap-2">
-                          <i class="fa-solid fa-check-circle text-green-500"></i>
-                          Avisar sobre las noticias más recientes, permitiendo filtrar por categoría.
-                        </li>
-                        <li class="flex items-center gap-2">
-                          <i class="fa-solid fa-check-circle text-green-500"></i>
-                          Poder hablar con otros usuarios a través de un foro.
-                        </li>
-                      </ul>
-                    </div>
-                  <div class="flex flex-wrap gap-3">
-                    <span class="flex items-center gap-2 
-                     bg-gray-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-gray-400">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/php.png" alt="Logo PHP">
-                      PHP
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-orange-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-orange-400">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/html.png" alt="Logo html">
-                      HTML
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-amber-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     ">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/javascript.jpg" alt="Logo JavaScript">
-                      JavaScript
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-blue-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-blue-400">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/css.png" alt="Logo CSS">
-                      CSS
-                    </span>
-                  </div>
-                  <a target="_blank" href="https://github.com/JowiMesas/EventsZoneG"
-                  class="mt-4 text-center bg-purple-500 py-2 px-4 
-                         rounded-lg hover:bg-purple-600 
-                         transition-colors duration-300 
-                         flex items-center justify-center gap-2 "
-                >
-                  <i class="fa-solid fa-eye"></i> Ver Repositorio
-                </a>
-              </div>
-     </article>
-     <!--4º Proyecto Carrera de Vehiculos -->
-     <article class="flex flex-col bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 
-               rounded-lg shadow-xl overflow-hidden transform transition-transform duration-300 
-               hover:scale-[1.05]">
-               <div class="w-full h-64">
-                <img src="/src/assets/carreraVehiculos.png"alt="Carrera de Vehiculos Proyecto Img"
-                  class="w-full h-full object-cover"/>
-              </div>
-              <div class="p-4 flex flex-col justify-between leading-normal">
-                <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  Carrera de Vehiculos</h5>
-                  <div class="mb-3 text-gray-700 dark:text-gray-400">
-                      <p>Este proyecto esta creado en el grado superior de DAW,
-                         en el que trabajabamos principalmente con las clases de JavaScript. <br>
-                        Las principales funciones que tiene esta web són:</p>
-                         <ul class="mt-3 list-disc list-inside space-y-1">
-                          <li class="flex items-center gap-2">
-                            <i class="fa-solid fa-check-circle text-green-500"></i>
-                            Permite crear o mostrar las estadísticas de los vehiculos</li>
-                            <li class="flex items-center gap-2">
-                              <i class="fa-solid fa-check-circle text-green-500"></i>
-                          Permite crear participantes y asignarles un vehiculo o  ver las estadisticas de los ya creados</li>
-                              <li class="flex items-center gap-2">
-                                <i class="fa-solid fa-check-circle text-green-500"></i>
-                                Crear circuitos y añadir o eliminar a participantes en estos</li>
-                                <li class="flex items-center gap-2">
-                                  <i class="fa-solid fa-check-circle text-green-500"></i>
-                                  Iniciar la Carrera </li>
-                         </ul>
-                  </div>
-                  <div class="flex flex-wrap gap-3">
-                    <span class="flex items-center gap-2 
-                     bg-orange-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-orange-400">
-                     <img class="w-6 h-6 mr-2" src="/src/assets/html.png" alt="Logo html">
-                     HTML
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-amber-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/javascript.jpg" alt="Logo Javascript">
-                      JavaScript
-                    </span>
-                    <span class="flex items-center gap-2 
-                     bg-blue-300 px-3 py-2 rounded-xl 
-                     hover:scale-105 transition-transform duration-300 
-                     hover:bg-blue-400">
-                      <img class="w-6 h-6 mr-2" src="/src/assets/css.png" alt="Logo CSS">
-                      CSS
-                    </span>
-                  </div>
-                  <a target="_blank" href="https://github.com/JowiMesas/Practica-Coches-JoelMesas"
-                  class="mt-4 text-center bg-purple-500 py-2 px-4 
-                         rounded-lg hover:bg-purple-600 
-                         transition-colors duration-300 
-                         flex items-center justify-center gap-2 "
-                >
-                  <i class="fa-solid fa-eye"></i> Ver Repositorio
-                </a>
-              </div>
-     </article>
-    </section>
+<div class="flex flex-col mx-6 gap-6 items-center mb-20">
+  <!-- Header with animation -->
+  <div class="text-center w-full max-w-4xl mt-8 mb-12">
+    <h1 class="text-4xl font-bold mb-4">Mis <span class="text-special">Proyectos</span></h1>
+    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+      Aquí encontrarás una selección de los proyectos más relevantes en los que he trabajado, 
+      mostrando mis habilidades técnicas y creatividad.
+    </p>
+    
+    <!-- Animación de línea decorativa -->
+    <div class="w-32 h-1 bg-primary mx-auto mt-6 animate-pulse"></div>
   </div>
   
+  
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-20 w-full max-w-5xl">
+    <!-- 1r Proyecto Swanest -->
+    <article
+      class="flex flex-col bg-white border border-gray-200
+             rounded-lg shadow-xl overflow-hidden group
+             transform transition-transform duration-300 
+             hover:scale-[1.02]"
+    >
+      <!-- Banner de tecnología principal -->
+      <div class="bg-red-400 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+        ANGULAR + SYMFONY
+      </div>
+      
+      <!-- Imagen con overlay al hover -->
+      <div class="w-full h-64 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+          <a href="/proyectosPage" class="bg-white text-primary font-semibold py-2 px-6 rounded-full hover:bg-secondary hover:text-white transition-colors duration-300">
+            Ver detalles
+          </a>
+        </div>
+        <img
+          src="/src/assets/swanest.png"
+          alt="Swanest Proyecto"
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+        />
+      </div>
+      
+      <!-- Contenido debajo de la imagen -->
+      <div class="p-6 flex flex-col justify-between leading-normal">
+        <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          Swanest
+        </h2>
+        <p class="mb-4 text-gray-700">
+          Este proyecto trata sobre una app de citas, 
+          desarrollada junto a 3 compañeros más en el grado superior de DAW.
+        </p>
+        
+        <!-- Tecnologías utilizadas con animación -->
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span 
+            class="flex items-center gap-2 
+                   bg-red-400 px-3 py-1.5 rounded-full text-white
+                   hover:scale-105 transition-all duration-300 
+                   hover:bg-red-500 shadow-sm"
+          >
+            <img class="w-5 h-5" src="/src/assets/angular.png" alt="Angular" /> 
+            Angular
+          </span>
+          <span 
+            class="flex items-center gap-2 
+                   bg-gray-400 px-3 py-1.5 rounded-full text-white
+                   hover:scale-105 transition-all duration-300 
+                   hover:bg-gray-500 shadow-sm"
+          >
+            <img class="w-5 h-5" src="/src/assets/symfony.png" alt="Symfony" /> 
+            Symfony
+          </span>
+          <span class="flex items-center gap-2 
+                   bg-blue-300 px-3 py-1.5 rounded-full text-white
+                   hover:scale-105 transition-all duration-300 
+                   hover:bg-blue-500 shadow-sm">
+              <img class="w-5 h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
+              Tailwind
+          </span>
+        </div>
+        
+        <!-- Botón Repositorio con animación al hover -->
+        <a
+          href="/proyectosPage"
+          class="text-center bg-primary py-2.5 px-5 text-white
+                 rounded-lg hover:bg-primary-light 
+                 transition-all duration-300 shadow-md
+                 flex items-center justify-center gap-2 group relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <i class="fa-solid fa-eye relative z-10"></i> 
+          <span class="relative z-10">Ver Repositorio</span>
+        </a>
+      </div>
+    </article>
+    
+    <!-- 2º Proyecto Blog de Prueba Laravel -->
+    <article class="flex flex-col bg-white border border-gray-200
+             rounded-lg shadow-xl overflow-hidden group
+             transform transition-transform duration-300 
+             hover:scale-[1.02]">
+      <!-- Banner de tecnología principal -->
+      <div class="bg-red-300 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+        LARAVEL
+      </div>
+      
+      <!-- Imagen con overlay al hover -->
+      <div class="w-full h-64 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+          <a target="_blank" href="https://github.com/JowiMesas/pruebablog-joel" class="bg-white text-primary font-semibold py-2 px-6 rounded-full hover:bg-secondary hover:text-white transition-colors duration-300">
+            Ver detalles
+          </a>
+        </div>
+        <img src="/src/assets/blogLaravel.png" alt="Blog Proyecto Img"
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
+      </div>
+      
+      <div class="p-6 flex flex-col justify-between leading-normal">
+        <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          Blog
+        </h2>
+        <p class="mb-4 text-gray-700">
+          Este proyecto es sobre un blog en Laravel, utilizando Livewire y Alpine.js,
+          además de relaciones polimórficas para gestionar el contenido.
+        </p>
+        
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="flex items-center gap-2 
+               bg-red-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-red-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/laravel.png" alt="Logo Laravel">
+            Laravel
+          </span>
+          <span class="flex items-center gap-2 bg-sky-500 px-3 py-1.5 rounded-full text-white
+              hover:scale-105 transition-all duration-300 hover:bg-sky-600 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/livewire.png" alt="Livewire logo">
+            Livewire
+          </span>
+          <span class="flex items-center gap-2 bg-gray-300 px-3 py-1.5 rounded-full text-white
+              hover:scale-105 transition-all duration-300 hover:bg-blue-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/alpine.png" alt="Logo Alpine.js">
+            Alpine.JS
+          </span>
+          <span class="flex items-center gap-2 
+               bg-blue-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-blue-500 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
+            Tailwind
+          </span>
+        </div>
+        
+        <a target="_blank" href="https://github.com/JowiMesas/pruebablog-joel"
+          class="text-center bg-primary py-2.5 px-5 text-white
+                 rounded-lg hover:bg-primary-light 
+                 transition-all duration-300 shadow-md
+                 flex items-center justify-center gap-2 group relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <i class="fa-solid fa-eye relative z-10"></i> 
+          <span class="relative z-10">Ver Repositorio</span>
+        </a>
+      </div>           
+    </article>
+    
+    <!-- 3r Proyecto EventsZoneG -->
+    <article class="flex flex-col bg-white border border-gray-200
+             rounded-lg shadow-xl overflow-hidden group
+             transform transition-transform duration-300 
+             hover:scale-[1.02]">
+      <!-- Banner de tecnología principal -->
+      <div class="bg-gray-300 text-gray-700 text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+        PHP
+      </div>
+      
+      <!-- Imagen con overlay al hover -->
+      <div class="w-full h-64 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+          <a target="_blank" href="https://github.com/JowiMesas/EventsZoneG" class="bg-white text-primary font-semibold py-2 px-6 rounded-full hover:bg-secondary hover:text-white transition-colors duration-300">
+            Ver detalles
+          </a>
+        </div>
+        <img src="/src/assets/eventszoneg.png" alt="EventsZoneG Proyecto Img"
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
+      </div>
+      
+      <div class="p-6 flex flex-col justify-between leading-normal">
+        <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          EventsZoneG
+        </h2>
+        <div class="mb-4 text-gray-700">
+          <p class="mb-2">
+            Esta página web trata sobre videojuegos, en la que cuenta con diversas funciones:
+          </p>
+          <ul class="space-y-1 pl-1">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Información sobre eventos de gaming
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Noticias recientes con filtrado por categoría
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Foro para comunicación entre usuarios
+            </li>
+          </ul>
+        </div>
+        
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="flex items-center gap-2 
+               bg-gray-300 px-3 py-1.5 rounded-full text-gray-700
+               hover:scale-105 transition-all duration-300 
+               hover:bg-gray-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/php.png" alt="Logo PHP">
+            PHP
+          </span>
+          <span class="flex items-center gap-2 
+               bg-orange-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-orange-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/html.png" alt="Logo html">
+            HTML
+          </span>
+          <span class="flex items-center gap-2 
+               bg-amber-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-amber-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/javascript.jpg" alt="Logo JavaScript">
+            JavaScript
+          </span>
+          <span class="flex items-center gap-2 
+               bg-blue-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-blue-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/css.png" alt="Logo CSS">
+            CSS
+          </span>
+        </div>
+        
+        <a target="_blank" href="https://github.com/JowiMesas/EventsZoneG"
+          class="text-center bg-primary py-2.5 px-5 text-white
+                 rounded-lg hover:bg-primary-light 
+                 transition-all duration-300 shadow-md
+                 flex items-center justify-center gap-2 group relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <i class="fa-solid fa-eye relative z-10"></i> 
+          <span class="relative z-10">Ver Repositorio</span>
+        </a>
+      </div>
+    </article>
+    
+    <!-- 4º Proyecto Carrera de Vehículos -->
+    <article class="flex flex-col bg-white border border-gray-200
+             rounded-lg shadow-xl overflow-hidden group
+             transform transition-transform duration-300 
+             hover:scale-[1.02]">
+      <!-- Banner de tecnología principal -->
+      <div class="bg-amber-300 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+        JAVASCRIPT
+      </div>
+      
+      <!-- Imagen con overlay al hover -->
+      <div class="w-full h-64 relative overflow-hidden">
+        <div class="absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+          <a target="_blank" href="https://github.com/JowiMesas/Practica-Coches-JoelMesas" class="bg-white text-primary font-semibold py-2 px-6 rounded-full hover:bg-secondary hover:text-white transition-colors duration-300">
+            Ver detalles
+          </a>
+        </div>
+        <img src="/src/assets/carreraVehiculos.png" alt="Carrera de Vehiculos Proyecto Img"
+          class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
+      </div>
+      
+      <div class="p-6 flex flex-col justify-between leading-normal">
+        <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          Carrera de Vehículos
+        </h2>
+        <div class="mb-4 text-gray-700">
+          <p class="mb-2">
+            Este proyecto fue creado en el grado superior de DAW,
+            enfocado en el trabajo con clases de JavaScript. Principales funciones:
+          </p>
+          <ul class="space-y-1 pl-1">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Crear y mostrar estadísticas de vehículos
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Gestión de participantes y asignación de vehículos
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Creación y gestión de circuitos
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-check-circle text-green-500"></i>
+              Simulación de carreras
+            </li>
+          </ul>
+        </div>
+        
+        <div class="flex flex-wrap gap-3 mb-4">
+          <span class="flex items-center gap-2 
+               bg-orange-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-orange-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/html.png" alt="Logo html">
+            HTML
+          </span>
+          <span class="flex items-center gap-2 
+               bg-amber-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-amber-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/javascript.jpg" alt="Logo Javascript">
+            JavaScript
+          </span>
+          <span class="flex items-center gap-2 
+               bg-blue-300 px-3 py-1.5 rounded-full text-white
+               hover:scale-105 transition-all duration-300 
+               hover:bg-blue-400 shadow-sm">
+            <img class="w-5 h-5" src="/src/assets/css.png" alt="Logo CSS">
+            CSS
+          </span>
+        </div>
+        
+        <a target="_blank" href="https://github.com/JowiMesas/Practica-Coches-JoelMesas"
+          class="text-center bg-primary py-2.5 px-5 text-white
+                 rounded-lg hover:bg-primary-light 
+                 transition-all duration-300 shadow-md
+                 flex items-center justify-center gap-2 group relative overflow-hidden"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <i class="fa-solid fa-eye relative z-10"></i> 
+          <span class="relative z-10">Ver Repositorio</span>
+        </a>
+      </div>
+    </article>
+  </section>
+  
+  <!-- Llamada a la acción final -->
+  <div class="w-full max-w-4xl mt-16 text-center p-8 bg-gradient-to-r from-secondary to-primary rounded-xl shadow-lg text-white">
+    <h2 class="text-2xl font-bold mb-4">¿Quieres ver más de mi trabajo?</h2>
+    <p class="mb-6">Visita mi GitHub para explorar todos mis proyectos</p>
+    <a target="_blank" href="https://github.com/JowiMesas" class="inline-flex items-center gap-2 bg-white text-primary font-bold py-3 px-6 rounded-full hover:bg-special hover:text-secondary transition-all duration-300 shadow-md">
+      <img class="w-6 h-6" src="/gitHubLogo.png" alt="GitHub Logo">
+      Ir a GitHub <i class="fa-solid fa-arrow-right ml-2"></i>
+    </a>
+  </div>
+</div>
