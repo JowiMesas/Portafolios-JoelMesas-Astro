@@ -4,10 +4,13 @@ import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
 // import i18next , { t } from "i18next";
-// import { Trans, HeadHrefLangs } from "astro-i18next/components";
+// // import { Trans, HeadHrefLangs } from "astro-i18next/components";
 // import "../../src/i18n/config.ts";
-
-
+// const changeLanguage = (lng:any) => {
+//   i18next.changeLanguage(lng).then(() => {
+//     window.location.reload(); // Recarga la página para aplicar los cambios
+//   });
+// };
 ---
 
 <!DOCTYPE html>
@@ -90,14 +93,14 @@ import { ClientRouter } from 'astro:transitions';
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
       <div class="flex gap-4">
-        <img id="lang-en" src="/ingles.jfif" alt="English" >
+        <!-- <img id="lang-en" src="/ingles.jfif" alt="English" onclick="changeLanguage('en')" > -->
       </div>
     <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
         <a href="/" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
             <i class="fa-solid fa-house"></i> <span>Home</span>
         </a>
         <a href="/sobreMiPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
-            <i class="fa-solid fa-circle-user"></i> <span>Sobre mi</span>
+            <i class="fa-solid fa-circle-user"></i> <span>Sobre mi </span>
         </a>
         <a href="/proyectosPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
             <i class="fa-solid fa-folders"></i> <span>Mis proyectos</span>
