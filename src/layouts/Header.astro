@@ -3,18 +3,17 @@ import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
-// import i18next , { t } from "i18next";
-// // import { Trans, HeadHrefLangs } from "astro-i18next/components";
-// import "../../src/i18n/config.ts";
-// const changeLanguage = (lng:any) => {
-//   i18next.changeLanguage(lng).then(() => {
-//     window.location.reload(); // Recarga la página para aplicar los cambios
-//   });
-// };
+import i18next , { t } from "i18next";
+import { Trans, HeadHrefLangs } from "astro-i18next/components";
+const changeLanguage = (lng:any) => {
+  i18next.changeLanguage(lng).then(() => {
+    window.location.reload(); // Recarga la página para aplicar los cambios
+  });
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={i18next.language}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +26,7 @@ import { ClientRouter } from 'astro:transitions';
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <link rel="stylesheet" href="/src/styles/global.css" />
 
-
+      
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
     <style>
