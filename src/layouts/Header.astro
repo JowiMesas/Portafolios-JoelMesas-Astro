@@ -2,6 +2,12 @@
 import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
+
+// import i18next , { t } from "i18next";
+// import { Trans, HeadHrefLangs } from "astro-i18next/components";
+// import "../../src/i18n/config.ts";
+
+
 ---
 
 <!DOCTYPE html>
@@ -9,7 +15,7 @@ import { ClientRouter } from 'astro:transitions';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolios Joel Mesas</title>
+    <title>Portafolios de Joel Mesas</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
@@ -83,6 +89,9 @@ import { ClientRouter } from 'astro:transitions';
         <img class="rounded-sm w-13 h-13  " src="/src/assets/JM.svg" alt="Logo de webs">
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
+      <div class="flex gap-4">
+        <img id="lang-en" src="/ingles.jfif" alt="English" >
+      </div>
     <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
         <a href="/" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
             <i class="fa-solid fa-house"></i> <span>Home</span>
@@ -144,7 +153,11 @@ import { ClientRouter } from 'astro:transitions';
     <p>© 2025 Joel Mesas | Desarrollador Web</p>
   </div>
 </footer>
-      <script>
+  <script>
+import i18next from "i18next";
+
+
+
         // Este script mejora la carga de Tailwind durante las transiciones
         document.addEventListener('astro:before-preparation', () => {
           // Añade una clase para ocultar momentáneamente el contenido

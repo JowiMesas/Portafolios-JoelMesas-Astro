@@ -1,0 +1,14 @@
+{
+    "site" : {
+        "title": "Portfolios of Joel Mesas"
+    },
+    "header": {
+        "title": "Joel Mesas",
+        "nav": {
+            "home": "Home",
+            "about": "About Me",
+            "projects": "Projects",
+            "curriculum": "Curriculum"
+        }
+    }
+}
