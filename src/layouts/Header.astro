@@ -3,13 +3,11 @@ import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
-import i18next , { t } from "i18next";
-import { Trans, HeadHrefLangs } from "astro-i18next/components";
-const changeLanguage = (lng:any) => {
-  i18next.changeLanguage(lng).then(() => {
-    window.location.reload(); // Recarga la página para aplicar los cambios
-  });
-};
+import i18next from 'i18next';
+import {localizePath, HeadHrefLangs } from 'astro-i18next';
+
+// const t = useTranslations();
+
 ---
 
 <!DOCTYPE html>

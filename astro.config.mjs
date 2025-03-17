@@ -10,14 +10,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    astroI18next({
-      defaultLocale: 'es',       // Idioma por defecto (ej: español)
-      locales: ['es', 'en'],     // Lista de idiomas disponibles
-      // Opciones avanzadas:
-      // routes: {
-      //   en: '',
-      //   es: 'es', // esto hará que /es/... sea la ruta para español, y / para inglés
-      // },
-    }),
+    astroI18next(),
   ],
 });
