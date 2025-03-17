@@ -1,9 +1,10 @@
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import enTranslations from "../../public/locales/en/translation.json";
-import esTranslations from "../../public/locales/es/translation.json";
+import enTranslations from "../locales/en/translation.json";
+import esTranslations from "../locales/es/translation.json";
 
 i18next.use(LanguageDetector).init({
+  lng: "es",
   fallbackLng: "es", // Idioma predeterminado (puedes cambiarlo a "en" si prefieres)
   resources: {
     en: {
