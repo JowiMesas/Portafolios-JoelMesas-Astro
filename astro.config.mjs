@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 
 import tailwindcss from "@tailwindcss/vite";
 import astroI18next from 'astro-i18next';
+import react from '@astrojs/react';
 
 export default defineConfig({
   
@@ -10,6 +11,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    astroI18next(),
+    astroI18next(), react(),
   ],
 });
