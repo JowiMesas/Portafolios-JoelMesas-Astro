@@ -3,20 +3,21 @@ import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
-import i18next, {t} from "i18next";
+import i18next from "i18next";
 import { localizePath } from "astro-i18next";
-import { HeadHrefLangs } from 'astro-i18next/components';
+import { t } from "i18next";
 import "../../src/i18n/config.ts";
 
-
+// Asegurarse de que i18next está inicializado correctamente
+const currentLanguage = i18next.language || "es";
 ---
 
 <!DOCTYPE html>
-<html lang={i18next.language}>
+<html lang={currentLanguage}>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolios de Joel Mesas</title>
+    <title>{t('site.title', 'Portafolios de Joel Mesas')}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/sharp-thin.css">
@@ -24,7 +25,10 @@ import "../../src/i18n/config.ts";
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <link rel="stylesheet" href="/src/styles/global.css" />
-
+    
+    <!-- Alternativas manuales para los enlaces de idioma -->
+    <link rel="alternate" hreflang="es" href={`${Astro.site}es${Astro.url.pathname}`} />
+    <link rel="alternate" hreflang="en" href={`${Astro.site}en${Astro.url.pathname}`} />
       
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
@@ -87,29 +91,29 @@ import "../../src/i18n/config.ts";
   <!-- Header refinado con sutiles detalles -->
   <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
     <div class="flex flex-row ml-5 items-center gap-4">
-        <img class="rounded-sm w-13 h-13  " src="/src/assets/JM.svg" alt="Logo de webs">
+        <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
-    <div class="flex gap-4">
-      <button id="lang-es" class="cursor-pointer"> 
+    <div class="flex gap-4 mx-4">
+      <button id="lang-es" class={`cursor-pointer ${currentLanguage === 'es' ? 'ring-2 ring-primary' : ''}`}> 
         <img class="w-6 h-6 rounded-full" src="/español.png" alt="Español">
       </button>
-      <button id="lang-en" class="cursor-pointer"> 
+      <button id="lang-en" class={`cursor-pointer ${currentLanguage === 'en' ? 'ring-2 ring-primary' : ''}`}> 
         <img class="w-6 h-6 rounded-full" src="/ingles.jfif" alt="English">
       </button>
     </div>
     <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
-        <a href="/" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-house"></i> <span>{t('header.nav.home')}</span>
+        <a href={localizePath("/")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-house"></i> <span>{t('header.nav.home', 'Inicio')}</span>
         </a>
-        <a href="/sobreMiPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
-            <i class="fa-solid fa-circle-user"></i> <span>{t('header.nav.about')}</span>
+        <a href={localizePath("/sobreMiPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
+            <i class="fa-solid fa-circle-user"></i> <span>{t('header.nav.about', 'Sobre mí')}</span>
         </a>
-        <a href="/proyectosPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-folders"></i> <span>{t('header.nav.projects')}</span>
+        <a href={localizePath("/proyectosPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-folders"></i> <span>{t('header.nav.projects', 'Proyectos')}</span>
         </a>
-        <a href="/curriculumPage" class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-file-user"></i> <span>{t('header.nav.curriculum')}</span>
+        <a href={localizePath("/curriculumPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
+            <i class="fa-solid fa-file-user"></i> <span>{t('header.nav.curriculum', 'Currículum')}</span>
         </a>
     </nav>
   </header>
@@ -121,18 +125,18 @@ import "../../src/i18n/config.ts";
 
  <!-- Footer refinado con alineación mejorada -->
 <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-  <h2 class="font-bold text-3xl text-special mb-4">Contactos</h2>
+  <h2 class="font-bold text-3xl text-special mb-4">{t('footer.contacts', 'Contactos')}</h2>
   <div class="flex flex-wrap justify-center items-stretch w-full max-w-6xl gap-8 px-4">
     <!-- Teléfono -->
     <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <i class="fa-solid fa-circle-phone text-3xl  mb-2"></i>
-      <span class="font-semibold text-lg">Teléfono</span>
+      <i class="fa-solid fa-circle-phone text-3xl mb-2"></i>
+      <span class="font-semibold text-lg">{t('footer.phone', 'Teléfono')}</span>
       <p class="mt-1">606 72 84 09</p>
     </div>
     
     <!-- Email -->
     <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <i class="fa-solid fa-circle-envelope text-3xl  mb-2"></i>
+      <i class="fa-solid fa-circle-envelope text-3xl mb-2"></i>
       <span class="font-semibold text-lg">Email</span>
       <p class="mt-1">joelmesash@gmail.com</p>
     </div>
@@ -142,7 +146,7 @@ import "../../src/i18n/config.ts";
       <img class="w-9 h-9 mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
       <span class="font-semibold text-lg">Linkedin</span>
       <a target="_blank" class="mt-1 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1" href="https://www.linkedin.com/in/joel-mesas/">
-        Ver perfil <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+        {t('footer.view_profile', 'Ver perfil')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
       </a>
     </div>
     
@@ -151,56 +155,58 @@ import "../../src/i18n/config.ts";
       <img class="w-9 h-9 mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
       <span class="font-semibold text-lg">GitHub</span>
       <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1" href="https://github.com/JowiMesas">
-        Ver perfil <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+        {t('footer.view_profile', 'Ver perfil')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
       </a>
     </div>
   </div>
   <div class="mt-6 text-center text-sm text-gray-400">
-    <p>© 2025 Joel Mesas | Desarrollador Web</p>
+    <p>© 2025 Joel Mesas | {t('footer.web_developer', 'Desarrollador Web')}</p>
   </div>
 </footer>
-  <script>
-import i18next from "i18next";
 
-        // Este script mejora la carga de Tailwind durante las transiciones
-        document.addEventListener('astro:before-preparation', () => {
-          // Añade una clase para ocultar momentáneamente el contenido
-          document.documentElement.classList.add('view-transition-preparing');
-        });
-  
-        
-  
-        document.addEventListener('astro:page-load', () => {
-          console.log('Página cargada con transición');
-          const langEs = document.getElementById('lang-es');
-          const langEn = document.getElementById('lang-en');
-          function changeLanguage(lang:any) {
+  <script>
+    document.addEventListener('astro:before-preparation', () => {
+      // Añade una clase para ocultar momentáneamente el contenido
+      document.documentElement.classList.add('view-transition-preparing');
+    });
+
+    document.addEventListener('astro:page-load', () => {
+      console.log('Página cargada con transición');
+      const langEs = document.getElementById('lang-es');
+      const langEn = document.getElementById('lang-en');
+      
+      function changeLanguage(lang:any) {
         // Construct the new URL with the language parameter
         const currentPath = window.location.pathname;
-        const newPath = currentPath.replace(/^\/(es|en)\//, '/') // Remove any existing language prefix
-        const newUrl = `/${lang}${newPath.startsWith('/') ? newPath : '/' + newPath}`;
+        // Remove any existing language prefix
+        const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
+        // Add trailing slash if needed
+        const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
+        // Create new URL with language prefix
+        const newUrl = `/${lang}${formattedPath}`;
+        
+        // Navigate to the new URL
+        window.location.href = newUrl;
+      }
       
-      // Navigate to the new URL
-      window.location.href = newUrl;
-    }
-    
-    if (langEs) langEs.addEventListener('click', () => changeLanguage('es'));
-    if (langEn) langEn.addEventListener('click', () => changeLanguage('en'));
-          // Elimina la clase que oculta el contenido después de un breve retraso
-          setTimeout(() => {
-            document.documentElement.classList.remove('view-transition-preparing');
-            document.documentElement.classList.add('main-content-ready');
-          }, 200);
-          
-          // Dispara un evento personalizado que cualquier script en la página puede escuchar
-          document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
-          
-          // Asegura scroll suave al principio de la página en cada carga
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
-      </script>
+      if (langEs) langEs.addEventListener('click', () => changeLanguage('es'));
+      if (langEn) langEn.addEventListener('click', () => changeLanguage('en'));
+      
+      // Elimina la clase que oculta el contenido después de un breve retraso
+      setTimeout(() => {
+        document.documentElement.classList.remove('view-transition-preparing');
+        document.documentElement.classList.add('main-content-ready');
+      }, 200);
+      
+      // Dispara un evento personalizado que cualquier script en la página puede escuchar
+      document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
+      
+      // Asegura scroll suave al principio de la página en cada carga
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>

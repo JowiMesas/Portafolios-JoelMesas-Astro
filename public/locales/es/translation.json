@@ -9,5 +9,11 @@
             "projects": "Proyectos",
             "curriculum": "Curriculum"
         }
-    }
+    },
+    "footer": {
+    "contacts": "Contactos",
+    "phone": "Teléfono",
+    "view_profile": "Ver perfil",
+    "web_developer": "Desarrollador Web"
+  }
 }

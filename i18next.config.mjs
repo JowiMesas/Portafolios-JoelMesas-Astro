@@ -3,10 +3,16 @@ export default {
   defaultLocale: "es",
   locales: ["es", "en"],
   routes: {
-    en: {
-      sobreMi: "about",
-      proyectos: "projects",
-      curriculum: "curriculum",
+    // Define aquí las rutas de traducción personalizadas si es necesario
+    es: {
+      "sobreMiPage": "sobreMiPage",
+      "proyectosPage": "proyectosPage",
+      "curriculumPage": "curriculumPage"
     },
-  },
+    en: {
+      "sobreMiPage": "aboutMePage",
+      "proyectosPage": "projectsPage",
+      "curriculumPage": "resumePage"
+    }
+  }
 };
