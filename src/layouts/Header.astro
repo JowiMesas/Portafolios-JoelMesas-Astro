@@ -3,13 +3,18 @@ import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
+// Importaciones de i18n
 import i18next from "i18next";
 import { localizePath } from "astro-i18next";
-import { t } from "i18next";
-import "../../src/i18n/config.ts";
+import "../i18n/config.ts";
 
-// Asegurarse de que i18next está inicializado correctamente
+// Asegurar que i18next está inicializado y obtener el idioma actual
 const currentLanguage = i18next.language || "es";
+
+// Función auxiliar para traducir
+const t = (key:any, defaultText = '') => {
+  return i18next.t(key, defaultText);
+};
 ---
 
 <!DOCTYPE html>
@@ -26,7 +31,7 @@ const currentLanguage = i18next.language || "es";
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <link rel="stylesheet" href="/src/styles/global.css" />
     
-    <!-- Alternativas manuales para los enlaces de idioma -->
+    <!-- Alternativas para los enlaces de idioma -->
     <link rel="alternate" hreflang="es" href={`${Astro.site}es${Astro.url.pathname}`} />
     <link rel="alternate" hreflang="en" href={`${Astro.site}en${Astro.url.pathname}`} />
       
@@ -95,12 +100,12 @@ const currentLanguage = i18next.language || "es";
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
     <div class="flex gap-4 mx-4">
-      <button id="lang-es" class={`cursor-pointer ${currentLanguage === 'es' ? 'ring-2 ring-primary' : ''}`}> 
+      <a href="/es" class={`cursor-pointer ${currentLanguage === 'es' ? 'ring-2 ring-primary' : ''}`}> 
         <img class="w-6 h-6 rounded-full" src="/español.png" alt="Español">
-      </button>
-      <button id="lang-en" class={`cursor-pointer ${currentLanguage === 'en' ? 'ring-2 ring-primary' : ''}`}> 
+      </a>
+      <a href="/en" class={`cursor-pointer ${currentLanguage === 'en' ? 'ring-2 ring-primary' : ''}`}> 
         <img class="w-6 h-6 rounded-full" src="/ingles.jfif" alt="English">
-      </button>
+      </a>
     </div>
     <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
         <a href={localizePath("/")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
@@ -164,49 +169,53 @@ const currentLanguage = i18next.language || "es";
   </div>
 </footer>
 
-  <script>
-    document.addEventListener('astro:before-preparation', () => {
-      // Añade una clase para ocultar momentáneamente el contenido
-      document.documentElement.classList.add('view-transition-preparing');
-    });
+<script>
+  // Importar i18next en el script del cliente
+  import i18next from 'i18next';
+  
+  document.addEventListener('astro:before-preparation', () => {
+    // Añade una clase para ocultar momentáneamente el contenido
+    document.documentElement.classList.add('view-transition-preparing');
+  });
 
-    document.addEventListener('astro:page-load', () => {
-      console.log('Página cargada con transición');
-      const langEs = document.getElementById('lang-es');
-      const langEn = document.getElementById('lang-en');
+  document.addEventListener('astro:page-load', () => {
+    console.log('Página cargada con transición');
+    const langEs = document.getElementById('lang-es');
+    const langEn = document.getElementById('lang-en');
+    
+    function changeLanguage(lang:any) {
+      // Construct the new URL with the language parameter
+      const currentPath = window.location.pathname;
+      // Remove any existing language prefix
+      const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
+      // Add trailing slash if needed
+      const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
+      // Create new URL with language prefix
+      const newUrl = `/${lang}${formattedPath}`;
       
-      function changeLanguage(lang:any) {
-        // Construct the new URL with the language parameter
-        const currentPath = window.location.pathname;
-        // Remove any existing language prefix
-        const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
-        // Add trailing slash if needed
-        const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
-        // Create new URL with language prefix
-        const newUrl = `/${lang}${formattedPath}`;
-        
-        // Navigate to the new URL
-        window.location.href = newUrl;
-      }
-      
-      if (langEs) langEs.addEventListener('click', () => changeLanguage('es'));
-      if (langEn) langEn.addEventListener('click', () => changeLanguage('en'));
-      
-      // Elimina la clase que oculta el contenido después de un breve retraso
-      setTimeout(() => {
-        document.documentElement.classList.remove('view-transition-preparing');
-        document.documentElement.classList.add('main-content-ready');
-      }, 200);
-      
-      // Dispara un evento personalizado que cualquier script en la página puede escuchar
-      document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
-      
-      // Asegura scroll suave al principio de la página en cada carga
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      // No intentes cambiar el idioma de i18next aquí
+      // Simplemente redirige al usuario
+      window.location.href = newUrl;
+    }
+    
+    if (langEs) langEs.addEventListener('click', () => changeLanguage('es'));
+    if (langEn) langEn.addEventListener('click', () => changeLanguage('en'))
+    
+    // Elimina la clase que oculta el contenido después de un breve retraso
+    setTimeout(() => {
+      document.documentElement.classList.remove('view-transition-preparing');
+      document.documentElement.classList.add('main-content-ready');
+    }, 200);
+    
+    // Dispara un evento personalizado que cualquier script en la página puede escuchar
+    document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
+    
+    // Asegura scroll suave al principio de la página en cada carga
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-  </script>
+  });
+</script>
 </body>
 </html>

@@ -2,17 +2,25 @@
 export default {
   defaultLocale: "es",
   locales: ["es", "en"],
+  namespaces: ["translation"],
+  defaultNamespace: "translation",
+  load: ["server", "client"], // Cargar traducciones en servidor y cliente
+  i18nextServer: {
+    debug: true,
+  },
+  i18nextClient: {
+    debug: true,
+  },
   routes: {
-    // Define aquí las rutas de traducción personalizadas si es necesario
     es: {
-      "sobreMiPage": "sobreMiPage",
-      "proyectosPage": "proyectosPage",
-      "curriculumPage": "curriculumPage"
+      sobreMiPage: "sobre-mi",
+      proyectosPage: "proyectos",
+      curriculumPage: "curriculum",
     },
     en: {
-      "sobreMiPage": "aboutMePage",
-      "proyectosPage": "projectsPage",
-      "curriculumPage": "resumePage"
+      sobreMiPage: "about-me",
+      proyectosPage: "projects",
+      curriculumPage: "resume",
     }
   }
 };
