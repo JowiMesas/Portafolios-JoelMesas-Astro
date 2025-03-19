@@ -11,6 +11,10 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    astroI18next(), react(),
+    react(),
   ],
+  i18n: {
+    defaultLocale: 'es',  // Your default language
+    locales: ['es', 'en'],
+  }
 });
