@@ -6,6 +6,7 @@ import { ClientRouter } from 'astro:transitions';
 // Importaciones de i18n
 
 import { getRelativeLocaleUrl } from 'astro:i18n';
+
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 // Asegurar que i18next está inicializado y obtener el idioma actual
 const currentLanguage = getLangFromUrl(new URL(Astro.url.href));

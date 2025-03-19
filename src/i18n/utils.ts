@@ -12,3 +12,4 @@ export function getLangFromUrl(url: URL) {
       return ui[lang][key] || ui[defaultLang][key];
     };
   }
+  
