@@ -28,9 +28,7 @@ const t = useTranslations(currentLanguage);
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <link rel="stylesheet" href="/src/styles/global.css" />
     
-    <!-- Alternativas para los enlaces de idioma -->
-    <link rel="alternate" hreflang="es" href={`${Astro.site}es${Astro.url.pathname}`} />
-    <link rel="alternate" hreflang="en" href={`${Astro.site}en${Astro.url.pathname}`} />
+    
       
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
@@ -162,7 +160,7 @@ const t = useTranslations(currentLanguage);
     </div>
   </div>
   <div class="mt-6 text-center text-sm text-gray-400">
-    <p>© 2025 Joel Mesas | {t('footer.web_developer')}</p>
+    <p>© 2025 Joel Mesas | {t('developerWeb')}</p>
   </div>
 </footer>
 
