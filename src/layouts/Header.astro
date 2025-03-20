@@ -272,7 +272,7 @@ const t = useTranslations(currentLanguage);
             const newUrl = `/${lang}${formattedPath}`;
             
             window.location.href = newUrl;
-          }, 600);
+          }, 300);
         });
       } else {
         // Fallback para navegadores que no soportan View Transitions
@@ -282,7 +282,7 @@ const t = useTranslations(currentLanguage);
           const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
           const newUrl = `/${lang}${formattedPath}`;
           window.location.href = newUrl;
-        }, 600);
+        }, 300);
       }
     }
     
