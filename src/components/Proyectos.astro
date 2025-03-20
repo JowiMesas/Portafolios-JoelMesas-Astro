@@ -1,10 +1,16 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+// Asegurar que i18next está inicializado y obtener el idioma actual
+const currentLanguage = getLangFromUrl(new URL(Astro.url.href));
+const t = useTranslations(currentLanguage);
+---
 <div class="flex flex-col mx-6 gap-6 items-center mb-20">
   <!-- Header with animation -->
   <div class="text-center w-full max-w-4xl mt-8 mb-12">
-    <h1 class="text-4xl font-bold mb-4">Mis <span class="text-special">Proyectos</span></h1>
+    <h1 class="text-4xl font-bold mb-4">{t('projects.my')}
+       <span class="text-special">{t('projects.title')}</span></h1>
     <p class="text-lg text-gray-700 max-w-2xl mx-auto">
-      Aquí encontrarás una selección de los proyectos más relevantes en los que he trabajado, 
-      mostrando mis habilidades técnicas y creatividad.
+      {t('projects.title.description')}
     </p>
     
     <!-- Animación de línea decorativa -->
@@ -41,8 +47,7 @@
             Swanest
           </h2>
           <p class="mb-4 text-gray-700">
-            Este proyecto trata sobre una app de citas, 
-            desarrollada junto a 3 compañeros más en el grado superior de DAW.
+            {t('project1.description')}
           </p>
           
           <!-- Tecnologías utilizadas con animación -->
@@ -85,7 +90,7 @@
         >
           <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <i class="fa-solid fa-code-branch relative z-10"></i> 
-          <span class="relative z-10">Ver Repositorio</span>
+          <span class="relative z-10">{t('projects.seeRepository')}</span>
         </a>
       </div>
     </article>
@@ -112,8 +117,7 @@
             Blog
           </h2>
           <p class="mb-4 text-gray-700">
-            Este proyecto es sobre un blog en Laravel, utilizando Livewire y Alpine.js,
-            además de relaciones polimórficas para gestionar el contenido.
+            {t('project2.description')}
           </p>
           
           <div class="flex flex-wrap gap-3 mb-4">
@@ -152,7 +156,7 @@
         >
           <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <i class="fa-solid fa-code-branch relative z-10"></i> 
-          <span class="relative z-10">Ver Repositorio</span>
+          <span class="relative z-10">{t('projects.seeRepository')}</span>
         </a>
       </div>           
     </article>
@@ -180,20 +184,20 @@
           </h2>
           <div class="mb-4 text-gray-700">
             <p class="mb-2">
-              Esta página web trata sobre videojuegos, en la que cuenta con diversas funciones:
+              {t('project3.description')}
             </p>
             <ul class="space-y-1 pl-1">
               <li class="flex items-center gap-2">
                 <i class="fa-solid fa-check-circle text-green-500"></i>
-                Información sobre eventos de gaming
+                {t('project3.function1')}
               </li>
               <li class="flex items-center gap-2">
                 <i class="fa-solid fa-check-circle text-green-500"></i>
-                Noticias recientes con filtrado por categoría
+                {t('project3.function2')}
               </li>
               <li class="flex items-center gap-2">
                 <i class="fa-solid fa-check-circle text-green-500"></i>
-                Foro para comunicación entre usuarios
+                {t('project3.function3')}
               </li>
             </ul>
           </div>
@@ -238,7 +242,7 @@
         >
           <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <i class="fa-solid fa-code-branch relative z-10"></i> 
-          <span class="relative z-10">Ver Repositorio</span>
+          <span class="relative z-10">{t('projects.seeRepository')}</span>
         </a>
       </div>
     </article>
@@ -262,29 +266,28 @@ class="w-full h-full object-cover transform group-hover:scale-110 transition-tra
 <div class="p-6 flex flex-col justify-between flex-grow">
 <div>
 <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
- Carrera de Vehículos
+ {t('project4.title')}
 </h2>
 <div class="mb-4 text-gray-700">
  <p class="mb-2">
-   Este proyecto fue creado en el grado superior de DAW,
-   enfocado en el trabajo con clases de JavaScript. Principales funciones:
+   {t('project4.description')}
  </p>
  <ul class="space-y-1 pl-1">
    <li class="flex items-center gap-2">
      <i class="fa-solid fa-check-circle text-green-500"></i>
-     Crear y mostrar estadísticas de vehículos
+     {t('project4.function1')}
    </li>
    <li class="flex items-center gap-2">
      <i class="fa-solid fa-check-circle text-green-500"></i>
-     Gestión de participantes y asignación de vehículos
+     {t('project4.function2')}
    </li>
    <li class="flex items-center gap-2">
      <i class="fa-solid fa-check-circle text-green-500"></i>
-     Creación y gestión de circuitos
+     {t('project4.function3')}
    </li>
    <li class="flex items-center gap-2">
      <i class="fa-solid fa-check-circle text-green-500"></i>
-     Simulación de carreras
+     {t('project4.function4')}
    </li>
  </ul>
 </div>
@@ -322,7 +325,7 @@ class="text-center bg-primary py-2.5 px-5 text-white
 >
 <div class="absolute inset-0 bg-gradient-to-r from-secondary to-primary-light opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 <i class="fa-solid fa-code-branch relative z-10"></i> 
-<span class="relative z-10">Ver Repositorio</span>
+<span class="relative z-10">{t('projects.seeRepository')}</span>
 </a>
 </div>
 </article>
