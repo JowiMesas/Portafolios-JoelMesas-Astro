@@ -152,11 +152,35 @@ const t = useTranslations(currentLanguage);
       .lang-button-active {
         transform: scale(1.05);
       }
+      .language-transition-active header {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Also modify the existing styles to ensure header visibility */
+.view-transition-preparing header {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Make sure the header has its own transition name */
+header {
+  view-transition-name: site-header;
+}
+
+/* Add specific transitions for the header */
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
+  animation: none;
+  mix-blend-mode: normal;
+  height: auto;
+  opacity: 1;
+}
     </style>
 </head>
 <body class="flex flex-col w-screen h-screen">
   <!-- Header rediseñado -->
-  <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
+  <header style="view-transition-name: site-header;" class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
     <div class="flex flex-row ml-5 items-center gap-4">
         <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
