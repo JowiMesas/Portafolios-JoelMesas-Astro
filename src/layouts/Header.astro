@@ -4,15 +4,12 @@ import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
 
 // Importaciones de i18n
-
 import { getRelativeLocaleUrl } from 'astro:i18n';
-
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 // Asegurar que i18next está inicializado y obtener el idioma actual
 const currentLanguage = getLangFromUrl(new URL(Astro.url.href));
 const t = useTranslations(currentLanguage);
-
-
 ---
 
 <!DOCTYPE html>
@@ -29,33 +26,37 @@ const t = useTranslations(currentLanguage);
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
     <link rel="stylesheet" href="/src/styles/global.css" />
     
-    
-      
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
     <style>
-      /* Modifica las transiciones para que sean más lentas y suaves */
+      /* Transiciones para cambio de página */
       ::view-transition-old(root) {
-        animation: fadeOut 1s ease-out forwards;
+        animation: fadeOut 1.5s ease-out forwards;
       }
       
       ::view-transition-new(root) {
-        animation: fadeIn 1s ease-out forwards;
+        animation: fadeIn 1.5s ease-out forwards;
       }
       
-      /* Transiciones específicas para el header - hacerlas un poco más lentas */
+      /* Transiciones específicas para el header */
       ::view-transition-old(nav-links),
       ::view-transition-new(nav-links) {
         animation: slide 0.5s ease-out forwards;
       }
       
-      /* Transición para el contenido principal - ajustar timing */
+      /* Transición para el contenido principal */
       ::view-transition-old(main-content),
       ::view-transition-new(main-content) {
         animation: scale 0.5s ease-out forwards;
       }
       
-      /* Animaciones con timing ajustado */
+      /* Transición para cambio de idioma */
+      ::view-transition-old(language-switch),
+      ::view-transition-new(language-switch) {
+        animation: rotate 1.2s ease-in-out forwards;
+      }
+      
+      /* Animaciones */
       @keyframes fadeOut {
         0% { opacity: 1; transform: translateY(0); }
         100% { opacity: 0; transform: translateY(-20px); }
@@ -78,31 +79,89 @@ const t = useTranslations(currentLanguage);
         40% { opacity: 0.6; }
         100% { transform: scale(1); opacity: 1; }
       }
+      
+      @keyframes rotate {
+        0% { transform: rotateY(0deg); }
+        50% { transform: rotateY(180deg); }
+        100% { transform: rotateY(360deg); }
+      }
+      
+      /* Estados de transición */
       .view-transition-preparing main {
          opacity: 0 !important;
       }
-
-      /* Asegura que el contenido sea visible solo cuando esté listo */
+      
       .main-content-ready {
         opacity: 1 !important;
+      }
+      
+      /* Estilos para los botones de idioma */
+      .lang-button {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+      
+      .lang-button img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .lang-button.active {
+        border-color: #B150F2; /* Usar el valor directo de tu variable CSS */
+        box-shadow: 0 0 10px #B150F2;
+        transform: scale(1.05);
+      }
+      
+      .lang-button:hover {
+        transform: scale(1.1);
+      }
+      
+      .lang-button::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, transparent 70%, rgba(0,0,0,0.2) 100%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      
+      .lang-button:hover::after {
+        opacity: 1;
+      }
+      
+      /* Clases para animaciones mediante JavaScript */
+      .lang-button-scale-down {
+        transform: scale(0.9);
+      }
+      
+      .lang-button-scale-up {
+        transform: scale(1.1);
+      }
+      
+      .lang-button-normal {
+        transform: scale(1);
+      }
+      
+      .lang-button-active {
+        transform: scale(1.05);
       }
     </style>
 </head>
 <body class="flex flex-col w-screen h-screen">
-  <!-- Header refinado con sutiles detalles -->
+  <!-- Header rediseñado -->
   <header class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
     <div class="flex flex-row ml-5 items-center gap-4">
         <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
         <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
-    <div class="flex gap-4 mx-4">
-      <a id="lang-es" href={getRelativeLocaleUrl("es", "/")} class={`cursor-pointer ${currentLanguage === 'es' ? 'ring-2 ring-primary' : ''}`}>
-        <img class="w-6 h-6 rounded-full" src="/español.png" alt="Español" />
-      </a>
-      <a id="lang-en" href={getRelativeLocaleUrl("en", "/")} class={`cursor-pointer ${currentLanguage === 'en' ? 'ring-2 ring-primary' : ''}`}>
-        <img class="w-6 h-6 rounded-full" src="/ingles.jfif" alt="English" />
-      </a>
-    </div>
+    
     <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
         <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
             <i class="fa-solid fa-house"></i> <span>{t('header.nav.home')}</span>
@@ -116,6 +175,18 @@ const t = useTranslations(currentLanguage);
         <a href={getRelativeLocaleUrl(currentLanguage, "/curriculumPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
             <i class="fa-solid fa-file-user"></i> <span>{t('header.nav.curriculum')}</span>
         </a>
+        
+        <!-- Botones de idioma reubicados y rediseñados -->
+        <div class="flex items-center gap-3 ml-8 pl-4 border-l border-white/20" style="view-transition-name: language-switch;">
+          <a id="lang-es" href={getRelativeLocaleUrl("es", "/")} class={`lang-button ${currentLanguage === 'es' ? 'active' : ''}`} aria-label="Cambiar a español" data-lang="es">
+            <img src="/español.png" alt="Español" />
+            <span class="sr-only">ES</span>
+          </a>
+          <a id="lang-en" href={getRelativeLocaleUrl("en", "/")} class={`lang-button ${currentLanguage === 'en' ? 'active' : ''}`} aria-label="Switch to English" data-lang="en">
+            <img src="/ingles.jfif" alt="English" />
+            <span class="sr-only">EN</span>
+          </a>
+        </div>
     </nav>
   </header>
 
@@ -124,51 +195,48 @@ const t = useTranslations(currentLanguage);
     <slot />
   </main>
 
- <!-- Footer refinado con alineación mejorada -->
-<footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-  <h2 class="font-bold text-3xl text-special mb-4">{t('footer.contacts')}</h2>
-  <div class="flex flex-wrap justify-center items-stretch w-full max-w-6xl gap-8 px-4">
-    <!-- Teléfono -->
-    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <i class="fa-solid fa-circle-phone text-3xl mb-2"></i>
-      <span class="font-semibold text-lg">{t('footer.phone')}</span>
-      <p class="mt-1">606 72 84 09</p>
+  <!-- Footer refinado con alineación mejorada -->
+  <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <h2 class="font-bold text-3xl text-special mb-4">{t('footer.contacts')}</h2>
+    <div class="flex flex-wrap justify-center items-stretch w-full max-w-6xl gap-8 px-4">
+      <!-- Teléfono -->
+      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+        <i class="fa-solid fa-circle-phone text-3xl mb-2"></i>
+        <span class="font-semibold text-lg">{t('footer.phone')}</span>
+        <p class="mt-1">606 72 84 09</p>
+      </div>
+      
+      <!-- Email -->
+      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+        <i class="fa-solid fa-circle-envelope text-3xl mb-2"></i>
+        <span class="font-semibold text-lg">Email</span>
+        <p class="mt-1">joelmesash@gmail.com</p>
+      </div>
+      
+      <!-- LinkedIn -->
+      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+        <img class="w-9 h-9 mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
+        <span class="font-semibold text-lg">Linkedin</span>
+        <a target="_blank" class="mt-1 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1" href="https://www.linkedin.com/in/joel-mesas/">
+          {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+        </a>
+      </div>
+      
+      <!-- GitHub -->
+      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
+        <img class="w-9 h-9 mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
+        <span class="font-semibold text-lg">GitHub</span>
+        <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1" href="https://github.com/JowiMesas">
+          {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
+        </a>
+      </div>
     </div>
-    
-    <!-- Email -->
-    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <i class="fa-solid fa-circle-envelope text-3xl mb-2"></i>
-      <span class="font-semibold text-lg">Email</span>
-      <p class="mt-1">joelmesash@gmail.com</p>
+    <div class="mt-6 text-center text-sm text-gray-400">
+      <p>© 2025 Joel Mesas | {t('developerWeb')}</p>
     </div>
-    
-    <!-- LinkedIn -->
-    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <img class="w-9 h-9 mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
-      <span class="font-semibold text-lg">Linkedin</span>
-      <a target="_blank" class="mt-1 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1" href="https://www.linkedin.com/in/joel-mesas/">
-        {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
-      </a>
-    </div>
-    
-    <!-- GitHub -->
-    <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-      <img class="w-9 h-9 mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
-      <span class="font-semibold text-lg">GitHub</span>
-      <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1" href="https://github.com/JowiMesas">
-        {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
-      </a>
-    </div>
-  </div>
-  <div class="mt-6 text-center text-sm text-gray-400">
-    <p>© 2025 Joel Mesas | {t('developerWeb')}</p>
-  </div>
-</footer>
+  </footer>
 
 <script>
-  // Importar i18next en el script del cliente
-  import i18next from 'i18next';
-  
   document.addEventListener('astro:before-preparation', () => {
     // Añade una clase para ocultar momentáneamente el contenido
     document.documentElement.classList.add('view-transition-preparing');
@@ -176,26 +244,68 @@ const t = useTranslations(currentLanguage);
 
   document.addEventListener('astro:page-load', () => {
     console.log('Página cargada con transición');
-    const langEs = document.getElementById('lang-es');
-    const langEn = document.getElementById('lang-en');
+    const langButtons = document.querySelectorAll('.lang-button');
     
-    function changeLanguage(lang:any) {
-      // Construct the new URL with the language parameter
-      const currentPath = window.location.pathname;
-      // Remove any existing language prefix
-      const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
-      // Add trailing slash if needed
-      const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
-      // Create new URL with language prefix
-      const newUrl = `/${lang}${formattedPath}`;
+    function changeLanguage(event:any) {
+      // Prevenir comportamiento por defecto para manejar la transición
+      event.preventDefault();
       
-      // No intentes cambiar el idioma de i18next aquí
-      // Simplemente redirige al usuario
-      window.location.href = newUrl;
+      // Obtener el idioma del botón pulsado
+      const lang = event.currentTarget.getAttribute('data-lang');
+      
+      // Animar el botón de idioma al hacer clic usando clases en lugar de manipular el style directamente
+      const button = event.currentTarget;
+      button.classList.add('lang-button-scale-down');
+      
+      // Iniciar la transición de vista
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          // Después de un breve retraso, navegar a la nueva URL
+          setTimeout(() => {
+            // Construct the new URL with the language parameter
+            const currentPath = window.location.pathname;
+            // Remove any existing language prefix
+            const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
+            // Add trailing slash if needed
+            const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
+            // Create new URL with language prefix
+            const newUrl = `/${lang}${formattedPath}`;
+            
+            window.location.href = newUrl;
+          }, 600);
+        });
+      } else {
+        // Fallback para navegadores que no soportan View Transitions
+        setTimeout(() => {
+          const currentPath = window.location.pathname;
+          const basePath = currentPath.replace(/^\/(es|en)\//, '/');
+          const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
+          const newUrl = `/${lang}${formattedPath}`;
+          window.location.href = newUrl;
+        }, 600);
+      }
     }
     
-    if (langEs) langEs.addEventListener('click', () => changeLanguage('es'));
-    if (langEn) langEn.addEventListener('click', () => changeLanguage('en'))
+    // Añadir eventos de clic a los botones de idioma
+    langButtons.forEach(button => {
+      button.addEventListener('click', changeLanguage);
+    });
+    
+    // Añadir efectos de hover a los botones de idioma usando clases
+    langButtons.forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        button.classList.add('lang-button-scale-up');
+      });
+      
+      button.addEventListener('mouseleave', () => {
+        button.classList.remove('lang-button-scale-up');
+        if (button.classList.contains('active')) {
+          button.classList.add('lang-button-active');
+        } else {
+          button.classList.add('lang-button-normal');
+        }
+      });
+    });
     
     // Elimina la clase que oculta el contenido después de un breve retraso
     setTimeout(() => {
