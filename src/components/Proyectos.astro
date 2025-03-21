@@ -4,21 +4,21 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const currentLanguage = getLangFromUrl(new URL(Astro.url.href));
 const t = useTranslations(currentLanguage);
 ---
-<div class="flex flex-col mx-6 gap-6 items-center mb-20">
+<div class="flex flex-col mx-2 sm:mx-4 md:mx-6 gap-4 sm:gap-6 items-center mb-10 sm:mb-20">
   <!-- Header with animation -->
-  <div class="text-center w-full max-w-4xl mt-8 mb-12">
-    <h1 class="text-4xl font-bold mb-4">{t('projects.my')}
+  <div class="text-center w-full max-w-4xl mt-4 sm:mt-8 mb-6 sm:mb-12">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-2 sm:mb-4">{t('projects.my')}
        <span class="text-special">{t('projects.title')}</span></h1>
-    <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+    <p class="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto px-4">
       {t('projects.title.description')}
     </p>
     
     <!-- Animación de línea decorativa -->
-    <div class="w-32 h-1 bg-primary mx-auto mt-6 animate-pulse"></div>
+    <div class="w-24 sm:w-32 h-1 bg-primary mx-auto mt-4 sm:mt-6 animate-pulse"></div>
   </div>
   
   
-  <section class="grid grid-cols-1 md:grid-cols-2 gap-20 w-full max-w-5xl">
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 lg:gap-20 w-full max-w-5xl px-4 sm:px-6">
     <!-- 1r Proyecto Swanest -->
     <article
       class="flex flex-col bg-white border border-gray-200
@@ -27,12 +27,12 @@ const t = useTranslations(currentLanguage);
              hover:scale-[1.02] h-full"
     >
       <!-- Banner de tecnología principal -->
-      <div class="bg-red-400 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+      <div class="bg-red-400 text-white text-xs font-bold px-2 sm:px-3 py-1 absolute right-0 m-2 sm:m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
         ANGULAR + SYMFONY
       </div>
       
       <!-- Imagen con overlay al hover -->
-      <div class="w-full h-64 relative overflow-hidden">
+      <div class="w-full h-48 sm:h-64 relative overflow-hidden">
         <img
           src="/src/assets/swanest.png"
           alt="Swanest Proyecto"
@@ -41,40 +41,40 @@ const t = useTranslations(currentLanguage);
       </div>
       
       <!-- Contenido debajo de la imagen -->
-      <div class="p-6 flex flex-col justify-between flex-grow">
+      <div class="p-4 sm:p-6 flex flex-col justify-between flex-grow">
         <div>
-          <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          <h2 class="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
             Swanest
           </h2>
-          <p class="mb-4 text-gray-700">
+          <p class="mb-3 sm:mb-4 text-sm sm:text-base text-gray-700">
             {t('project1.description')}
           </p>
           
           <!-- Tecnologías utilizadas con animación -->
-          <div class="flex flex-wrap gap-3 mb-4">
+          <div class="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-4">
             <span 
-              class="flex items-center gap-2 
-                     bg-red-400 px-3 py-1.5 rounded-full text-white
+              class="flex items-center gap-1 sm:gap-2 
+                     bg-red-400 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                      hover:scale-105 transition-all duration-300 
                      hover:bg-red-500 shadow-sm"
             >
-              <img class="w-5 h-5" src="/src/assets/angular.png" alt="Angular" /> 
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/angular.png" alt="Angular" /> 
               Angular
             </span>
             <span 
-              class="flex items-center gap-2 
-                     bg-gray-400 px-3 py-1.5 rounded-full text-white
+              class="flex items-center gap-1 sm:gap-2 
+                     bg-gray-400 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                      hover:scale-105 transition-all duration-300 
                      hover:bg-gray-500 shadow-sm"
             >
-              <img class="w-5 h-5" src="/src/assets/symfony.png" alt="Symfony" /> 
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/symfony.png" alt="Symfony" /> 
               Symfony
             </span>
-            <span class="flex items-center gap-2 
-                     bg-blue-300 px-3 py-1.5 rounded-full text-white
+            <span class="flex items-center gap-1 sm:gap-2 
+                     bg-blue-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                      hover:scale-105 transition-all duration-300 
                      hover:bg-blue-500 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
               Tailwind
             </span>
           </div>
@@ -83,7 +83,7 @@ const t = useTranslations(currentLanguage);
         <!-- Botón Repositorio con animación al hover -->
         <a
           href="/proyectosPage"
-          class="text-center bg-primary py-2.5 px-5 text-white
+          class="text-center bg-primary py-2 sm:py-2.5 px-4 sm:px-5 text-white text-sm sm:text-base
                  rounded-lg hover:bg-primary-light 
                  transition-all duration-300 shadow-md
                  flex items-center justify-center gap-2 group relative overflow-hidden mt-auto"
@@ -101,55 +101,57 @@ const t = useTranslations(currentLanguage);
              transform transition-transform duration-300 
              hover:scale-[1.02] h-full">
       <!-- Banner de tecnología principal -->
-      <div class="bg-red-300 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+      <div class="bg-red-300 text-white text-xs font-bold px-2 sm:px-3 py-1 absolute right-0 m-2 sm:m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
         LARAVEL
       </div>
       
       <!-- Imagen con overlay al hover -->
-      <div class="w-full h-64 relative overflow-hidden">
+      <div class="w-full h-48 sm:h-64 relative overflow-hidden">
         <img src="/src/assets/blogLaravel.png" alt="Blog Proyecto Img"
           class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
       </div>
       
-      <div class="p-6 flex flex-col justify-between flex-grow">
+      <div class="p-4 sm:p-6 flex flex-col justify-between flex-grow">
         <div>
-          <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          <h2 class="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
             Blog
           </h2>
-          <p class="mb-4 text-gray-700">
+          <p class="mb-3 sm:mb-4 text-sm sm:text-base text-gray-700">
             {t('project2.description')}
           </p>
           
-          <div class="flex flex-wrap gap-3 mb-4">
-            <span class="flex items-center gap-2 
-                 bg-red-300 px-3 py-1.5 rounded-full text-white
+          <div class="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-red-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-red-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/laravel.png" alt="Logo Laravel">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/laravel.png" alt="Logo Laravel">
               Laravel
             </span>
-            <span class="flex items-center gap-2 bg-sky-500 px-3 py-1.5 rounded-full text-white
-                hover:scale-105 transition-all duration-300 hover:bg-sky-600 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/livewire.png" alt="Livewire logo">
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-sky-500 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
+                 hover:scale-105 transition-all duration-300 hover:bg-sky-600 shadow-sm">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/livewire.png" alt="Livewire logo">
               Livewire
             </span>
-            <span class="flex items-center gap-2 bg-gray-300 px-3 py-1.5 rounded-full text-white
-                hover:scale-105 transition-all duration-300 hover:bg-blue-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/alpine.png" alt="Logo Alpine.js">
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-gray-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
+                 hover:scale-105 transition-all duration-300 hover:bg-blue-400 shadow-sm">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/alpine.png" alt="Logo Alpine.js">
               Alpine.JS
             </span>
-            <span class="flex items-center gap-2 
-                 bg-blue-300 px-3 py-1.5 rounded-full text-white
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-blue-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-blue-500 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/tailwind.png" alt="Logo Tailwind">
               Tailwind
             </span>
           </div>
         </div>
         
         <a target="_blank" href="https://github.com/JowiMesas/pruebablog-joel"
-          class="text-center bg-primary py-2.5 px-5 text-white
+          class="text-center bg-primary py-2 sm:py-2.5 px-4 sm:px-5 text-white text-sm sm:text-base
                  rounded-lg hover:bg-primary-light 
                  transition-all duration-300 shadow-md
                  flex items-center justify-center gap-2 group relative overflow-hidden mt-auto"
@@ -167,75 +169,75 @@ const t = useTranslations(currentLanguage);
              transform transition-transform duration-300 
              hover:scale-[1.02] h-full">
       <!-- Banner de tecnología principal -->
-      <div class="bg-gray-300 text-gray-700 text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+      <div class="bg-gray-300 text-gray-700 text-xs font-bold px-2 sm:px-3 py-1 absolute right-0 m-2 sm:m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
         PHP
       </div>
       
       <!-- Imagen con overlay al hover -->
-      <div class="w-full h-64 relative overflow-hidden">
+      <div class="w-full h-48 sm:h-64 relative overflow-hidden">
         <img src="/src/assets/eventszoneg.png" alt="EventsZoneG Proyecto Img"
           class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
       </div>
       
-      <div class="p-6 flex flex-col justify-between flex-grow">
+      <div class="p-4 sm:p-6 flex flex-col justify-between flex-grow">
         <div>
-          <h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+          <h2 class="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
             EventsZoneG
           </h2>
-          <div class="mb-4 text-gray-700">
-            <p class="mb-2">
+          <div class="mb-3 sm:mb-4 text-sm sm:text-base text-gray-700">
+            <p class="mb-1 sm:mb-2">
               {t('project3.description')}
             </p>
-            <ul class="space-y-1 pl-1">
-              <li class="flex items-center gap-2">
-                <i class="fa-solid fa-check-circle text-green-500"></i>
-                {t('project3.function1')}
+            <ul class="space-y-0.5 sm:space-y-1 pl-1">
+              <li class="flex items-center gap-1 sm:gap-2">
+                <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+                <span class="text-xs sm:text-sm">{t('project3.function1')}</span>
               </li>
-              <li class="flex items-center gap-2">
-                <i class="fa-solid fa-check-circle text-green-500"></i>
-                {t('project3.function2')}
+              <li class="flex items-center gap-1 sm:gap-2">
+                <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+                <span class="text-xs sm:text-sm">{t('project3.function2')}</span>
               </li>
-              <li class="flex items-center gap-2">
-                <i class="fa-solid fa-check-circle text-green-500"></i>
-                {t('project3.function3')}
+              <li class="flex items-center gap-1 sm:gap-2">
+                <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+                <span class="text-xs sm:text-sm">{t('project3.function3')}</span>
               </li>
             </ul>
           </div>
           
-          <div class="flex flex-wrap gap-3 mb-4">
-            <span class="flex items-center gap-2 
-                 bg-gray-300 px-3 py-1.5 rounded-full text-gray-700
+          <div class="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-gray-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-gray-700 text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-gray-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/php.png" alt="Logo PHP">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/php.png" alt="Logo PHP">
               PHP
             </span>
-            <span class="flex items-center gap-2 
-                 bg-orange-300 px-3 py-1.5 rounded-full text-white
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-orange-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-orange-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/html.png" alt="Logo html">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/html.png" alt="Logo html">
               HTML
             </span>
-            <span class="flex items-center gap-2 
-                 bg-amber-300 px-3 py-1.5 rounded-full text-white
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-amber-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-amber-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/javascript.jpg" alt="Logo JavaScript">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/javascript.jpg" alt="Logo JavaScript">
               JavaScript
             </span>
-            <span class="flex items-center gap-2 
-                 bg-blue-300 px-3 py-1.5 rounded-full text-white
+            <span class="flex items-center gap-1 sm:gap-2 
+                 bg-blue-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
                  hover:scale-105 transition-all duration-300 
                  hover:bg-blue-400 shadow-sm">
-              <img class="w-5 h-5" src="/src/assets/css.png" alt="Logo CSS">
+              <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/css.png" alt="Logo CSS">
               CSS
             </span>
           </div>
         </div>
         
         <a target="_blank" href="https://github.com/JowiMesas/EventsZoneG"
-          class="text-center bg-primary py-2.5 px-5 text-white
+          class="text-center bg-primary py-2 sm:py-2.5 px-4 sm:px-5 text-white text-sm sm:text-base
                  rounded-lg hover:bg-primary-light 
                  transition-all duration-300 shadow-md
                  flex items-center justify-center gap-2 group relative overflow-hidden mt-auto"
@@ -253,72 +255,72 @@ rounded-lg shadow-xl overflow-hidden group
 transform transition-transform duration-300 
 hover:scale-[1.02] h-full">
 <!-- Banner de tecnología principal -->
-<div class="bg-amber-300 text-white text-xs font-bold px-3 py-1 absolute right-0 m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
+<div class="bg-amber-300 text-white text-xs font-bold px-2 sm:px-3 py-1 absolute right-0 m-2 sm:m-4 rounded-l-full z-10 group-hover:right-2 transition-all duration-300">
 JAVASCRIPT
 </div>
 
 <!-- Imagen con overlay al hover -->
-<div class="w-full h-64 relative overflow-hidden">
+<div class="w-full h-48 sm:h-64 relative overflow-hidden">
 <img src="/src/assets/carreraVehiculos.png" alt="Carrera de Vehiculos Proyecto Img"
 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"/>
 </div>
 
-<div class="p-6 flex flex-col justify-between flex-grow">
+<div class="p-4 sm:p-6 flex flex-col justify-between flex-grow">
 <div>
-<h2 class="mb-3 text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
+<h2 class="mb-2 sm:mb-3 text-xl sm:text-2xl font-bold tracking-tight text-secondary group-hover:text-primary transition-colors duration-300">
  {t('project4.title')}
 </h2>
-<div class="mb-4 text-gray-700">
- <p class="mb-2">
+<div class="mb-3 sm:mb-4 text-sm sm:text-base text-gray-700">
+ <p class="mb-1 sm:mb-2">
    {t('project4.description')}
  </p>
- <ul class="space-y-1 pl-1">
-   <li class="flex items-center gap-2">
-     <i class="fa-solid fa-check-circle text-green-500"></i>
-     {t('project4.function1')}
+ <ul class="space-y-0.5 sm:space-y-1 pl-1">
+   <li class="flex items-center gap-1 sm:gap-2">
+     <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+     <span class="text-xs sm:text-sm">{t('project4.function1')}</span>
    </li>
-   <li class="flex items-center gap-2">
-     <i class="fa-solid fa-check-circle text-green-500"></i>
-     {t('project4.function2')}
+   <li class="flex items-center gap-1 sm:gap-2">
+     <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+     <span class="text-xs sm:text-sm">{t('project4.function2')}</span>
    </li>
-   <li class="flex items-center gap-2">
-     <i class="fa-solid fa-check-circle text-green-500"></i>
-     {t('project4.function3')}
+   <li class="flex items-center gap-1 sm:gap-2">
+     <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+     <span class="text-xs sm:text-sm">{t('project4.function3')}</span>
    </li>
-   <li class="flex items-center gap-2">
-     <i class="fa-solid fa-check-circle text-green-500"></i>
-     {t('project4.function4')}
+   <li class="flex items-center gap-1 sm:gap-2">
+     <i class="fa-solid fa-check-circle text-green-500 text-xs sm:text-sm"></i>
+     <span class="text-xs sm:text-sm">{t('project4.function4')}</span>
    </li>
  </ul>
 </div>
 
-<div class="flex flex-wrap gap-3 mb-4">
- <span class="flex items-center gap-2 
-   bg-orange-300 px-3 py-1.5 rounded-full text-white
+<div class="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-4">
+ <span class="flex items-center gap-1 sm:gap-2 
+   bg-orange-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
    hover:scale-105 transition-all duration-300 
    hover:bg-orange-400 shadow-sm">
-   <img class="w-5 h-5" src="/src/assets/html.png" alt="Logo html">
+   <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/html.png" alt="Logo html">
    HTML
  </span>
- <span class="flex items-center gap-2 
-   bg-amber-300 px-3 py-1.5 rounded-full text-white
+ <span class="flex items-center gap-1 sm:gap-2 
+   bg-amber-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
    hover:scale-105 transition-all duration-300 
    hover:bg-amber-400 shadow-sm">
-   <img class="w-5 h-5" src="/src/assets/javascript.jpg" alt="Logo Javascript">
+   <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/javascript.jpg" alt="Logo Javascript">
    JavaScript
  </span>
- <span class="flex items-center gap-2 
-   bg-blue-300 px-3 py-1.5 rounded-full text-white
+ <span class="flex items-center gap-1 sm:gap-2 
+   bg-blue-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-white text-xs sm:text-sm
    hover:scale-105 transition-all duration-300 
    hover:bg-blue-400 shadow-sm">
-   <img class="w-5 h-5" src="/src/assets/css.png" alt="Logo CSS">
+   <img class="w-4 h-4 sm:w-5 sm:h-5" src="/src/assets/css.png" alt="Logo CSS">
    CSS
  </span>
 </div>
 </div>
 
 <a target="_blank" href="https://github.com/JowiMesas/Practica-Coches-JoelMesas"
-class="text-center bg-primary py-2.5 px-5 text-white
+class="text-center bg-primary py-2 sm:py-2.5 px-4 sm:px-5 text-white text-sm sm:text-base
    rounded-lg hover:bg-primary-light 
    transition-all duration-300 shadow-md
    flex items-center justify-center gap-2 group relative overflow-hidden mt-auto"
@@ -329,3 +331,5 @@ class="text-center bg-primary py-2.5 px-5 text-white
 </a>
 </div>
 </article>
+  </section>
+</div>

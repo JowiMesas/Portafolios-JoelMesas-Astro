@@ -9,39 +9,41 @@ const t = useTranslations(currentLanguage);
 ---
 
 <main>
-  <!-- Hero Section con tu paleta de colores -->
-  <section class="bg-gradient-to-br from-primary via-primary-light to-special py-16 px-6 min-h-[85vh] flex items-center">
-    <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-xl shadow-2xl p-8 border border-white/20">
+  <!-- Hero Section con adaptación móvil -->
+  <section class="bg-gradient-to-br from-primary via-primary-light to-special py-10 md:py-16 px-4 md:px-6 min-h-[85vh] flex items-center">
+    <div class="max-w-5xl mx-auto bg-white/10 backdrop-blur-md rounded-xl shadow-2xl p-4 md:p-8 border border-white/20">
       <div class="flex flex-col md:flex-row items-center">
-        <!-- Imagen de perfil -->
+        <!-- Imagen de perfil mejorada para móvil -->
         <div class="md:w-1/2 flex justify-center">
           <div class="relative">
             <div class="absolute inset-0 bg-special rounded-full blur-md opacity-30 animate-pulse"></div>
             <img
               src="/src/assets/fotoCV.png"
               alt="Joel Mesas"
-              class="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl object-cover"
+              class="relative w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full border-4 border-white shadow-xl object-cover"
             />
           </div>
         </div>
         
-        <!-- Texto y botones -->
-        <div class="md:w-1/2 mt-8 md:mt-0 md:pl-12 text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold text-white">{t('home.welcome')} <span class="text-secondary">Joel Mesas</span>!👋</h1>
-          <p class="mt-4 text-xl md:text-3xl text-white">
+        <!-- Texto y botones adaptados para móvil -->
+        <div class="md:w-1/2 mt-6 md:mt-0 md:pl-12 text-center md:text-left">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            {t('home.welcome')} <span class="text-secondary">Joel Mesas</span>!👋
+          </h1>
+          <p class="mt-3 md:mt-4 text-lg sm:text-xl md:text-3xl text-white">
             {t('developerWeb')} <span class="text-secondary font-bold">Full Stack</span>
           </p>
           
-          <div class="mt-8 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
+          <div class="mt-6 md:mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a
               href={getRelativeLocaleUrl(currentLanguage, "/sobreMiPage")}
-              class="inline-block bg-secondary/80 text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-special hover:text-secondary font-bold group"
+              class="w-full sm:w-auto inline-block bg-secondary/80 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-special hover:text-secondary font-bold text-center group"
             >
               <i class="fa-solid fa-circle-user mr-2 group-hover:animate-bounce"></i> {t('home.me')}
             </a>
             <a
               href={getRelativeLocaleUrl(currentLanguage, "/proyectosPage")}
-              class="inline-block border-2 border-white/70 text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-white hover:text-primary font-bold group"
+              class="w-full sm:w-auto inline-block border-2 border-white/70 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-white hover:text-primary font-bold text-center group"
             >
               <i class="fa-solid fa-folders mr-2 group-hover:animate-bounce"></i> {t('home.projects')}
             </a>
@@ -51,74 +53,74 @@ const t = useTranslations(currentLanguage);
     </div>
   </section>
 
-  <!-- Sección de Resumen / Valor -->
-  <section id="valor" class="py-16 px-6 bg-white">
+  <!-- Sección de Resumen / Valor adaptada a móvil -->
+  <section id="valor" class="py-10 md:py-16 px-4 md:px-6 bg-white">
     <div class="container mx-auto max-w-4xl">
-      <h2 class="text-3xl md:text-4xl font-bold text-secondary text-center mb-6">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary text-center mb-4 md:mb-6">
         {t('home.valueCompany')}
       </h2>
-      <div class="w-24 h-1 bg-special mx-auto mb-10"></div>
+      <div class="w-16 md:w-24 h-1 bg-special mx-auto mb-6 md:mb-10"></div>
       
-      <!-- Cards de valor -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Cards de valor adaptadas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
         <!-- Card 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
           <div class="flex items-start">
-            <div class="bg-special/20 p-3 rounded-full mr-4">
-              <i class="fa-solid fa-code text-primary text-2xl"></i>
+            <div class="bg-special/20 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+              <i class="fa-solid fa-code text-primary text-xl md:text-2xl"></i>
             </div>
             <div>
-              <h3 class="font-bold text-secondary text-xl">{t('home.contribution1')}</h3>
-              <p class="text-gray-600 mt-2">{t('home.contribution1.description')}</p>
+              <h3 class="font-bold text-secondary text-lg md:text-xl">{t('home.contribution1')}</h3>
+              <p class="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">{t('home.contribution1.description')}</p>
             </div>
           </div>
         </div>
         
         <!-- Card 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-lg transition duration-300 transform hover:scale-105">
           <div class="flex items-start">
-            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
-              <i class="fa-solid fa-palette text-[#B150F2] text-2xl"></i>
+            <div class="bg-[#F2BC57]/20 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+              <i class="fa-solid fa-palette text-[#B150F2] text-xl md:text-2xl"></i>
             </div>
             <div>
-              <h3 class="font-bold text-[#373540] text-xl">{t('home.contribution2')}</h3>
-              <p class="text-gray-600 mt-2">{t('home.contribution2.description')}</p>
+              <h3 class="font-bold text-[#373540] text-lg md:text-xl">{t('home.contribution2')}</h3>
+              <p class="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">{t('home.contribution2.description')}</p>
             </div>
           </div>
         </div>
         
         <!-- Card 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
           <div class="flex items-start">
-            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
-              <i class="fa-solid fa-laptop-code text-[#B150F2] text-2xl"></i>
+            <div class="bg-[#F2BC57]/20 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+              <i class="fa-solid fa-laptop-code text-[#B150F2] text-xl md:text-2xl"></i>
             </div>
             <div>
-              <h3 class="font-bold text-[#373540] text-xl">{t('home.contribution3')}</h3>
-              <p class="text-gray-600 mt-2">{t('home.contribution3.description')}</p>
+              <h3 class="font-bold text-[#373540] text-lg md:text-xl">{t('home.contribution3')}</h3>
+              <p class="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">{t('home.contribution3.description')}</p>
             </div>
           </div>
         </div>
         
         <!-- Card 4 -->
-        <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
+        <div class="bg-white p-4 md:p-6 rounded-lg shadow-md border-l-4 border-[#B150F2] hover:shadow-lg transition duration-300 transform hover:scale-105">
           <div class="flex items-start">
-            <div class="bg-[#F2BC57]/20 p-3 rounded-full mr-4">
-              <i class="fa-solid fa-users text-[#B150F2] text-2xl"></i>
+            <div class="bg-[#F2BC57]/20 p-2 md:p-3 rounded-full mr-3 md:mr-4 flex-shrink-0">
+              <i class="fa-solid fa-users text-[#B150F2] text-xl md:text-2xl"></i>
             </div>
             <div>
-              <h3 class="font-bold text-[#373540] text-xl">{t('home.contribution4')}</h3>
-              <p class="text-gray-600 mt-2">{t('home.contribution4.description')}</p>
+              <h3 class="font-bold text-[#373540] text-lg md:text-xl">{t('home.contribution4')}</h3>
+              <p class="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">{t('home.contribution4.description')}</p>
             </div>
           </div>
         </div>
       </div>
       
-      <!-- Call to action -->
-      <div class="text-center mt-12">
+      <!-- Call to action adaptado -->
+      <div class="text-center mt-8 md:mt-12">
         <a 
           href={getRelativeLocaleUrl(currentLanguage, "/curriculumPage")}
-          class="inline-block bg-[#B150F2] text-white px-8 py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-[#CA6BF2] font-bold"
+          class="inline-block bg-[#B150F2] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg shadow-lg transition duration-300 transform hover:scale-105 hover:bg-[#CA6BF2] font-bold"
         >
           <i class="fa-solid fa-file-user mr-2"></i> {t('home.curriculum')}
         </a>
@@ -126,11 +128,11 @@ const t = useTranslations(currentLanguage);
     </div>
   </section>
 
-  <!-- Sección CTA Final -->
-  <section class="py-16 px-6 bg-[#373540] text-white">
+  <!-- Sección CTA Final adaptada -->
+  <section class="py-10 md:py-16 px-4 md:px-6 bg-[#373540] text-white">
     <div class="container mx-auto max-w-4xl text-center">
-      <h2 class="text-3xl md:text-4xl font-bold-6 mb-6">{t('home.title2')}</h2>
-      <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">{t('home.title2')}</h2>
+      <p class="text-base sm:text-lg md:text-xl text-white/80 mb-6 md:mb-8 max-w-2xl mx-auto">
         {t('home.title2.description')}
       </p>
     </div>

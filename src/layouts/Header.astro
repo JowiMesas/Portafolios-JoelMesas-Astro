@@ -182,35 +182,41 @@ header {
   <!-- Header rediseñado -->
   <header style="view-transition-name: site-header;" class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
     <div class="flex flex-row ml-5 items-center gap-4">
-        <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
-        <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
+      <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
+      <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
     
-    <nav class="flex flex-row gap-x-10 mr-6" style="view-transition-name: nav-links;">
-        <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-house"></i> <span>{t('header.nav.home')}</span>
+    <!-- Botón de menú hamburguesa (visible solo en móvil) -->
+    <button id="mobile-menu-button" class="md:hidden flex items-center mr-6 z-50">
+      <i class="fa-solid fa-bars text-2xl"></i>
+    </button>
+    
+    <!-- Navegación principal (visible en desktop, oculta en móvil hasta activar) -->
+    <nav id="main-nav" class="fixed md:relative top-0 right-0 h-screen md:h-auto w-3/4 md:w-auto transform translate-x-full md:translate-x-0 bg-secondary md:bg-transparent pt-20 md:pt-0 transition-transform duration-300 ease-in-out md:flex md:flex-row md:gap-x-10 md:mr-6 shadow-lg md:shadow-none" style="view-transition-name: nav-links;">
+      <a href={getRelativeLocaleUrl(currentLanguage, "/")} class="block py-4 px-6 md:p-0 border-b border-white/10 md:border-none hover:text-primary-light transition-colors duration-300 md:flex md:items-center md:gap-2"> 
+        <i class="fa-solid fa-house mr-2 md:mr-0"></i> <span>{t('header.nav.home')}</span>
+      </a>
+      <a href={getRelativeLocaleUrl(currentLanguage, "/sobreMiPage")} class="block py-4 px-6 md:p-0 border-b border-white/10 md:border-none hover:text-primary-light transition-colors duration-300 md:flex md:items-center md:gap-2">
+        <i class="fa-solid fa-circle-user mr-2 md:mr-0"></i> <span>{t('header.nav.about')}</span>
+      </a>
+      <a href={getRelativeLocaleUrl(currentLanguage, "/proyectosPage")} class="block py-4 px-6 md:p-0 border-b border-white/10 md:border-none hover:text-primary-light transition-colors duration-300 md:flex md:items-center md:gap-2"> 
+        <i class="fa-solid fa-folders mr-2 md:mr-0"></i> <span>{t('header.nav.projects')}</span>
+      </a>
+      <a href={getRelativeLocaleUrl(currentLanguage, "/curriculumPage")} class="block py-4 px-6 md:p-0 border-b border-white/10 md:border-none hover:text-primary-light transition-colors duration-300 md:flex md:items-center md:gap-2"> 
+        <i class="fa-solid fa-file-user mr-2 md:mr-0"></i> <span>{t('header.nav.curriculum')}</span>
+      </a>
+      
+      <!-- Botones de idioma reubicados y rediseñados -->
+      <div class="flex items-center justify-center gap-3 mt-6 md:mt-0 md:ml-8 md:pl-4 md:border-l md:border-white/20" style="view-transition-name: language-switch;">
+        <a id="lang-es" href={getRelativeLocaleUrl("es", "/")} class={`lang-button ${currentLanguage === 'es' ? 'active' : ''}`} aria-label="Cambiar a español" data-lang="es">
+          <img src="/español.png" alt="Español" />
+          <span class="sr-only">ES</span>
         </a>
-        <a href={getRelativeLocaleUrl(currentLanguage, "/sobreMiPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2">
-            <i class="fa-solid fa-circle-user"></i> <span>{t('header.nav.about')}</span>
+        <a id="lang-en" href={getRelativeLocaleUrl("en", "/")} class={`lang-button ${currentLanguage === 'en' ? 'active' : ''}`} aria-label="Switch to English" data-lang="en">
+          <img src="/ingles.jfif" alt="English" />
+          <span class="sr-only">EN</span>
         </a>
-        <a href={getRelativeLocaleUrl(currentLanguage, "/proyectosPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-folders"></i> <span>{t('header.nav.projects')}</span>
-        </a>
-        <a href={getRelativeLocaleUrl(currentLanguage, "/curriculumPage")} class="hover:text-primary-light transition-colors duration-300 flex items-center gap-2"> 
-            <i class="fa-solid fa-file-user"></i> <span>{t('header.nav.curriculum')}</span>
-        </a>
-        
-        <!-- Botones de idioma reubicados y rediseñados -->
-        <div class="flex items-center gap-3 ml-8 pl-4 border-l border-white/20" style="view-transition-name: language-switch;">
-          <a id="lang-es" href={getRelativeLocaleUrl("es", "/")} class={`lang-button ${currentLanguage === 'es' ? 'active' : ''}`} aria-label="Cambiar a español" data-lang="es">
-            <img src="/español.png" alt="Español" />
-            <span class="sr-only">ES</span>
-          </a>
-          <a id="lang-en" href={getRelativeLocaleUrl("en", "/")} class={`lang-button ${currentLanguage === 'en' ? 'active' : ''}`} aria-label="Switch to English" data-lang="en">
-            <img src="/ingles.jfif" alt="English" />
-            <span class="sr-only">EN</span>
-          </a>
-        </div>
+      </div>
     </nav>
   </header>
 
@@ -220,42 +226,44 @@ header {
   </main>
 
   <!-- Footer refinado con alineación mejorada -->
-  <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
-    <h2 class="font-bold text-3xl text-special mb-4">{t('footer.contacts')}</h2>
-    <div class="flex flex-wrap justify-center items-stretch w-full max-w-6xl gap-8 px-4">
+  <footer class="font-[Ubuntu_Mono] flex flex-col items-center w-full h-auto bg-secondary text-white py-4 sm:py-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    <h2 class="font-bold text-xl sm:text-2xl md:text-3xl text-special mb-2 sm:mb-3 md:mb-4">{t('footer.contacts')}</h2>
+    
+    <div class="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 w-full max-w-6xl px-4 sm:px-6 md:px-8">
       <!-- Teléfono -->
-      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-        <i class="fa-solid fa-circle-phone text-3xl mb-2"></i>
-        <span class="font-semibold text-lg">{t('footer.phone')}</span>
-        <p class="mt-1">606 72 84 09</p>
+      <div class="flex flex-col items-center p-3 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 h-full">
+        <i class="fa-solid fa-phone-circle text-xl sm:text-2xl md:text-3xl mb-1 sm:mb-2"></i>
+        <span class="font-semibold text-sm sm:text-base md:text-lg">{t('footer.phone')}</span>
+        <p class="mt-1 text-sm sm:text-base">606 72 84 09</p>
       </div>
       
       <!-- Email -->
-      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-        <i class="fa-solid fa-circle-envelope text-3xl mb-2"></i>
-        <span class="font-semibold text-lg">Email</span>
-        <p class="mt-1">joelmesash@gmail.com</p>
+      <div class="flex flex-col items-center p-3 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 h-full">
+        <i class="fa-solid fa-envelope-circle text-xl sm:text-2xl md:text-3xl mb-1 sm:mb-2"></i>
+        <span class="font-semibold text-sm sm:text-base md:text-lg">Email</span>
+        <p class="mt-1 text-xs sm:text-sm md:text-base break-all text-center">joelmesash@gmail.com</p>
       </div>
       
       <!-- LinkedIn -->
-      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-        <img class="w-9 h-9 mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
-        <span class="font-semibold text-lg">Linkedin</span>
-        <a target="_blank" class="mt-1 hover:text-blue-500 transition-colors duration-300 flex items-center gap-1" href="https://www.linkedin.com/in/joel-mesas/">
+      <div class="flex flex-col items-center p-3 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 h-full">
+        <img class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-1 sm:mb-2" src="/logoLinkedin.png" alt="Logo Linkedin">
+        <span class="font-semibold text-sm sm:text-base md:text-lg">Linkedin</span>
+        <a target="_blank" class="mt-1 hover:text-blue-400 transition-colors duration-300 flex items-center gap-1 text-xs sm:text-sm md:text-base" href="https://www.linkedin.com/in/joel-mesas/">
           {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
         </a>
       </div>
       
       <!-- GitHub -->
-      <div class="flex flex-col items-center p-4 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[180px]">
-        <img class="w-9 h-9 mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
-        <span class="font-semibold text-lg">GitHub</span>
-        <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1" href="https://github.com/JowiMesas">
+      <div class="flex flex-col items-center p-3 bg-secondary/80 rounded-lg hover:bg-secondary/90 transition-all duration-300 h-full">
+        <img class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 mb-1 sm:mb-2" src="/gitHubLogo.png" alt="Logo GitHub">
+        <span class="font-semibold text-sm sm:text-base md:text-lg">GitHub</span>
+        <a target="_blank" class="mt-1 hover:text-primary-light transition-colors duration-300 flex items-center gap-1 text-xs sm:text-sm md:text-base" href="https://github.com/JowiMesas">
           {t('footer.view_profile')} <i class="fa-solid fa-arrow-pointer animate-pulse"></i>
         </a>
       </div>
     </div>
-    <div class="mt-6 text-center text-sm text-gray-400">
+    
+    <div class="mt-4 sm:mt-5 md:mt-6 text-center text-xs sm:text-sm text-gray-400">
       <p>© 2025 Joel Mesas | {t('developerWeb')}</p>
     </div>
   </footer>
@@ -267,85 +275,138 @@ header {
   });
 
   document.addEventListener('astro:page-load', () => {
-    console.log('Página cargada con transición');
-    const langButtons = document.querySelectorAll('.lang-button');
+  console.log('Página cargada con transición');
+  
+  // Use type assertions when getting elements
+  const langButtons = document.querySelectorAll('.lang-button');
+  const mobileMenuButton = document.getElementById('mobile-menu-button') as HTMLElement | null;
+  const mainNav = document.getElementById('main-nav') as HTMLElement | null;
+  
+  // Mobile menu functionality - with stronger type checking
+  if (mobileMenuButton && mainNav) {
+    // Store references to avoid null checks in every function
+    const menuBtn = mobileMenuButton;
+    const nav = mainNav;
     
-    function changeLanguage(event:any) {
-      // Prevenir comportamiento por defecto para manejar la transición
-      event.preventDefault();
+    // Función para alternar el menú
+    const toggleMenu = (): void => {
+      const isExpanded = nav.classList.contains('translate-x-0');
       
-      // Obtener el idioma del botón pulsado
-      const lang = event.currentTarget.getAttribute('data-lang');
-      
-      // Animar el botón de idioma al hacer clic usando clases en lugar de manipular el style directamente
-      const button = event.currentTarget;
-      button.classList.add('lang-button-scale-down');
-      
-      // Iniciar la transición de vista
-      if (document.startViewTransition) {
-        document.startViewTransition(() => {
-          // Después de un breve retraso, navegar a la nueva URL
-          setTimeout(() => {
-            // Construct the new URL with the language parameter
-            const currentPath = window.location.pathname;
-            // Remove any existing language prefix
-            const basePath = currentPath.replace(/^\/(es|en)\//, '/'); 
-            // Add trailing slash if needed
-            const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
-            // Create new URL with language prefix
-            const newUrl = `/${lang}${formattedPath}`;
-            
-            window.location.href = newUrl;
-          }, 300);
-        });
+      if (isExpanded) {
+        // Cerrar menú
+        nav.classList.remove('translate-x-0');
+        nav.classList.add('translate-x-full');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+        document.body.classList.remove('overflow-hidden');
       } else {
-        // Fallback para navegadores que no soportan View Transitions
-        setTimeout(() => {
-          const currentPath = window.location.pathname;
-          const basePath = currentPath.replace(/^\/(es|en)\//, '/');
-          const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
-          const newUrl = `/${lang}${formattedPath}`;
-          window.location.href = newUrl;
-        }, 300);
+        // Abrir menú
+        nav.classList.remove('translate-x-full');
+        nav.classList.add('translate-x-0');
+        menuBtn.innerHTML = '<i class="fa-solid fa-xmark text-2xl"></i>';
+        document.body.classList.add('overflow-hidden');
       }
-    }
+    };
     
-    // Añadir eventos de clic a los botones de idioma
-    langButtons.forEach(button => {
-      button.addEventListener('click', changeLanguage);
-    });
+    // Evento para el botón de menú
+    menuBtn.addEventListener('click', toggleMenu);
     
-    // Añadir efectos de hover a los botones de idioma usando clases
-    langButtons.forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        button.classList.add('lang-button-scale-up');
-      });
-      
-      button.addEventListener('mouseleave', () => {
-        button.classList.remove('lang-button-scale-up');
-        if (button.classList.contains('active')) {
-          button.classList.add('lang-button-active');
-        } else {
-          button.classList.add('lang-button-normal');
+    // Cerrar el menú cuando se hace clic en un enlace (en móvil)
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach((link: Element) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 768) {
+          toggleMenu();
         }
       });
     });
     
-    // Elimina la clase que oculta el contenido después de un breve retraso
-    setTimeout(() => {
-      document.documentElement.classList.remove('view-transition-preparing');
-      document.documentElement.classList.add('main-content-ready');
-    }, 200);
+    // Reiniciar estado del menú al cambiar el tamaño de la ventana
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        nav.classList.remove('translate-x-0', 'translate-x-full');
+        document.body.classList.remove('overflow-hidden');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars text-2xl"></i>';
+      } else if (!nav.classList.contains('translate-x-0')) {
+        nav.classList.add('translate-x-full');
+      }
+    });
+  }
+
+  // Language switcher functionality
+  const changeLanguage = (event: MouseEvent): void => {
+    event.preventDefault();
     
-    // Dispara un evento personalizado que cualquier script en la página puede escuchar
-    document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
+    // Explicitly cast the event target
+    const button = event.currentTarget as HTMLElement;
+    if (!button) return;
     
-    // Asegura scroll suave al principio de la página en cada carga
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+    // Get the language attribute with fallback
+    const lang = button.getAttribute('data-lang');
+    if (!lang) {
+      console.error('Language attribute missing');
+      return;
+    }
+    
+    // Animar el botón de idioma al hacer clic
+    button.classList.add('lang-button-scale-down');
+    
+    // Define the view transition function to avoid duplication
+    const navigateToNewLanguage = (): void => {
+      setTimeout(() => {
+        const currentPath = window.location.pathname;
+        const basePath = currentPath.replace(/^\/(es|en)\//, '/');
+        const formattedPath = basePath.endsWith('/') ? basePath : basePath + '/';
+        const newUrl = `/${lang}${formattedPath}`;
+        window.location.href = newUrl;
+      }, 300);
+    };
+    
+    // Check for View Transitions API support
+    // @ts-ignore - Handle experimental API
+    if (typeof document.startViewTransition === 'function') {
+      // @ts-ignore - This is a newer API not in all TypeScript definitions
+      document.startViewTransition(() => {
+        navigateToNewLanguage();
+      });
+    } else {
+      navigateToNewLanguage();
+    }
+  };
+  
+  // Apply event listeners to language buttons with proper typing
+  langButtons.forEach((btn: Element) => {
+    btn.addEventListener('click', changeLanguage as EventListener);
+    
+    // Hover effects
+    btn.addEventListener('mouseenter', () => {
+      btn.classList.add('lang-button-scale-up');
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.classList.remove('lang-button-scale-up');
+      if (btn.classList.contains('active')) {
+        btn.classList.add('lang-button-active');
+      } else {
+        btn.classList.add('lang-button-normal');
+      }
     });
   });
+  
+  // Page transition cleanup
+  setTimeout(() => {
+    document.documentElement.classList.remove('view-transition-preparing');
+    document.documentElement.classList.add('main-content-ready');
+  }, 200);
+  
+  // Custom event dispatch
+  document.dispatchEvent(new CustomEvent('page-transitioned-complete'));
+  
+  // Smooth scroll to top
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 </script>
 </body>
 </html>
