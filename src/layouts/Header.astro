@@ -2,6 +2,7 @@
 import '@fontsource/ubuntu-mono/700.css';
 import '@fontsource/neucha';
 import { ClientRouter } from 'astro:transitions';
+import "../styles/global.css";
 
 // Importaciones de i18n
 import { getRelativeLocaleUrl } from 'astro:i18n';
@@ -24,7 +25,6 @@ const t = useTranslations(currentLanguage);
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-solid.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/sharp-duotone-regular.css">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/duotone-thin.css">
-    <link rel="stylesheet" href="/src/styles/global.css" />
     
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <ClientRouter />
@@ -182,7 +182,7 @@ header {
   <!-- Header rediseñado -->
   <header style="view-transition-name: site-header;" class="font-[Ubuntu_Mono] flex fixed justify-between top-0 w-full h-20 items-center text-white bg-secondary shadow-md z-50">
     <div class="flex flex-row ml-5 items-center gap-4">
-      <img class="rounded-sm w-13 h-13" src="/src/assets/JM.svg" alt="Logo de webs">
+      <img class="rounded-sm w-13 h-13" src="/JM.svg" alt="Logo de webs">
       <h3 class="text-2xl font-bold"><span class="text-special">Joel </span>Mesas</h3>
     </div>
     
