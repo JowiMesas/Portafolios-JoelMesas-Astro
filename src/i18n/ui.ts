@@ -50,7 +50,7 @@ export const ui = {
     "aboutMe.paragraph3": `Fuera del mundo del código, me apasiona el mundo 
      del motor 🏎️, la tecnología en general y los videojuegos 🎮.`,
     "aboutMe.experience": "Mi experiencia",
-    "aboutMe.currently": "Actualmente",
+    "aboutMe.date": "Febrero - Junio,  2025",
     "aboutMe.experience1": `Desarrollo de aplicaciones web con Laravel, optimizando 
      interfaces y rendimiento. Colaboración en proyectos de clientes, implementando 
      funcionalidades y asegurando la calidad del código.`,
@@ -160,7 +160,7 @@ export const ui = {
     "aboutMe.paragraph3": `Outside the world of coding, I am passionate about 
      the world of the engine 🏎️, technology in general and videogames 🎮.`,
     "aboutMe.experience": "My experience",
-    "aboutMe.currently": "Currently",
+    "aboutMe.date": "February - June, 2025",
     "aboutMe.experience1": `Development of web applications with Laravel, optimising interfaces and 
      performance. Collaboration in client projects, implementing functionalities and ensuring code quality.`,
     "aboutMe.title.experience2": "Computer Systems Technician",
